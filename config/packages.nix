@@ -1,0 +1,44 @@
+{ lib, pkgs, unstable, config, ... }: {
+  home.packages =
+    (with pkgs; [
+    ])
+    ++
+    (with unstable; [
+      pam-reattach
+      coreutils
+      eza
+      fd
+      jq
+      pastel
+      ripgrep
+      sd
+      sops
+      act
+      age
+      alejandra
+      awscli2
+      bore-cli
+      bun
+      cachix
+      docker
+      ffmpeg_5
+      fzf
+      go
+      htop
+      librsvg
+      libwebp
+      lolcat
+      lsd
+      monitorcontrol
+      nodejs
+      ollama
+      openssl
+      optipng
+      redis
+      rustup
+      skhd
+      unixtools.script
+      watch
+      yabai
+     ]);
+}

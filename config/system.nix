@@ -1,0 +1,39 @@
+{ pkgs, ... }: {
+  nix.package = pkgs.nixFlakes;
+  services.nix-daemon.enable = true;
+  time.timeZone = "America/New_York";
+
+  system.patches = [
+    (pkgs.writeText "pam_tid.patch" ''
+      --- /etc/pam.d/sudo	2023-09-28 09:27:50
+      +++ /etc/pam.d/sudo	2023-09-28 09:27:54
+      @@ -1,4 +1,6 @@
+       # sudo: auth account password session
+      +auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so
+      +auth       sufficient     pam_tid.so
+       auth       include        sudo_local
+       auth       sufficient     pam_smartcard.so
+       auth       required       pam_opendirectory.so
+    '')
+  ];
+
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
+  environment.shells = [ pkgs.zsh ];
+  programs.zsh = {
+    enable = true;
+  };
+
+  system.defaults = {
+    SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
+    screencapture.type = "png";
+
+    finder = {
+      ShowPathbar = true;
+      ShowStatusBar = true;
+    };
+  };
+}

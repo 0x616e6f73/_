@@ -50,6 +50,9 @@
       push = {
         autoSetupRemote = true;
       };
+      url = {
+        "git@github.com:0x616e6f73/_.git".pushInsteadOf = "https://github.com/0x616e6f73/_.git";
+      };
     };
   };
 }

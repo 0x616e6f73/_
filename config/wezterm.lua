@@ -12,34 +12,9 @@ config.font = wezterm.font("MesloLGS NF", { weight = "Regular" })
 config.font_size = 13.0
 config.bold_brightens_ansi_colors = true
 
+config.color_scheme = 'Glacier'
 config.colors = {
-    foreground = "#ffffff",
-    background = "#0A0A0A",
-    cursor_bg = "#6D6D6D",
-    cursor_fg = "#6D6D6D",
-    cursor_border = "#6D6D6D",
-    selection_fg = "#ffffff",
-    selection_bg = "#B91D73",
-    ansi = {
-        "#181818", -- Black
-        "#B91D73", -- Red
-        "#35B91D", -- Green
-        "#F9F9F8", -- Yellow
-        "#1E1E1E", -- Blue
-        "#B91D73", -- Magenta
-        "#76A8A8", -- Cyan
-        "#ffffff"  -- White
-    },
-    brights = {
-        "#2E3436", -- Bright Black
-        "#B91D73", -- Bright Red
-        "#65B91D", -- Bright Green
-        "#FFFFFF", -- Bright Yellow
-        "#2882F9", -- Bright Blue
-        "#B91D73", -- Bright Magenta
-        "#A1C8C8", -- Bright Cyan
-        "#ffffff"  -- Bright White
-    }
+    background = "#0a0a0a"
 }
 
 config.window_background_opacity = 0.8

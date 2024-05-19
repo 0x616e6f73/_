@@ -45,33 +45,4 @@ config.window_decorations = "RESIZE"
 config.default_prog = { "zsh", "-l" }
 config.term = "xterm-256color"
 
-wezterm.on("trigger-helix-with-scrollback", function(window)
-    local overrides = window:get_config_overrides() or {}
-    overrides.window_padding = {
-        left = 0,
-        right = 0,
-        top = 0,
-        bottom = 0,
-    }
-    window:set_config_overrides(overrides)
-
-    local dims = window:get_dimensions()
-    local pad = 5
-    window:set_inner_size({
-        width = dims.pixel_width + 2 * pad,
-        height = dims.pixel_height + 2 * pad,
-    })
-end)
-
-wezterm.on("trigger-helix-without-scrollback", function(window)
-    window:set_config_overrides({
-        window_padding = {
-            left = 10,
-            right = 10,
-            top = 10,
-            bottom = 10,
-        },
-    })
-end)
-
 return config

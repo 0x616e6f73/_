@@ -26,6 +26,17 @@ config.window_padding = {
     bottom = 10,
 }
 
+wezterm.on("gui-startup", function(cmd)
+  if cmd == "helix" then
+    config.window_padding = {
+      left = 0,
+      right = 0,
+      top = 0,
+      bottom = 0,
+    }
+  end
+end)
+
 config.window_close_confirmation = "NeverPrompt"
 config.adjust_window_size_when_changing_font_size = false
 

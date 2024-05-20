@@ -19,7 +19,7 @@
         statusline = {
           left = [ "mode" "version-control" "spinner" "file-modification-indicator" ];
           center = [ "file-name" ];
-          right = [ "diagnostics" "position-percentage" "file-encoding"  "file-type" ];
+          right = [ "diagnostics" "position-percentage" "file-encoding" "file-type" ];
 
           mode = {
             normal = "NORMAL";

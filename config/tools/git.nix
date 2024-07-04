@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 let
-  # Import the secret configuration
   secretConfig = import ./secret-git-config.nix;
 in
 {

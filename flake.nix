@@ -18,14 +18,13 @@
 
   outputs = { self, pkgs, u_pkgs, hm, os, sops-nix }:
     let
-      system = "aarch64-darwin";
+      system = "aarch64-darwin"; # M1 Max
       unstable = u_pkgs.legacyPackages.${system};
     in {
       darwinConfigurations."net" = os.lib.darwinSystem {
         inherit system;
         modules = [
           hm.darwinModules.home-manager
-          sops-nix.darwinModules.sops
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

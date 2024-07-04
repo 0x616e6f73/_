@@ -10,13 +10,9 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "pkgs";
     };
-    sops-nix = {
-      url = "github:mic92/sops-nix";
-      inputs.nixpkgs.follows = "pkgs";
-    };
   };
 
-  outputs = { self, pkgs, u_pkgs, hm, os, sops-nix }:
+  outputs = { self, pkgs, u_pkgs, hm, os }:
     let
       system = "aarch64-darwin"; # M1 Max
       unstable = u_pkgs.legacyPackages.${system};
@@ -26,14 +22,11 @@
         modules = [
           hm.darwinModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit unstable; };
-            home-manager.users.ay = { pkgs, ... }: {
-              imports = [
-                ./config/home.nix
-                sops-nix.homeManagerModules.sops
-              ];
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = { inherit unstable; };
+              users.ay = import ./config/home.nix;
             };
           }
           ./config/system.nix

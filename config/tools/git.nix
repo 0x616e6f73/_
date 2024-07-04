@@ -1,8 +1,5 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
-let
-  secretConfig = import ./secret-git-config.nix;
-in
 {
   programs.git = {
     enable = true;
@@ -41,15 +38,11 @@ in
       submodule.fetchJobs = 4;
       merge.conflictstyle = "diff3";
       push.autoSetupRemote = true;
-
-      # User configurations (imported from secret config)
-      user = secretConfig.users;
-
-      # Conditional includes based on directory
-      includeIf = secretConfig.includeIf;
-
-      # URL configurations for each account
-      url = secretConfig.url;
     };
   };
+
+  home.activation.setGitConfig = config.lib.dag.entryAfter ["writeBoundary"] ''
+    ${pkgs.yq}/bin/yq eval ${config.sops.secrets.git_config.path} > $HOME/.gitconfig-secret
+    git config --global include.path $HOME/.gitconfig-secret
+  '';
 }

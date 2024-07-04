@@ -1,0 +1,7 @@
+keys:
+  - &ay age16e0mm7dknmkqzl469jdrcz3cdr4fx2ej5zndlenmk3g3lfescacsfr3s28
+creation_rules:
+  - path_regex: secrets/git_config.yaml$
+    key_groups:
+    - age:
+      - *ay

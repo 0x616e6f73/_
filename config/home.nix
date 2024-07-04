@@ -25,4 +25,10 @@
     ./tools/ssh.nix
   ];
 
+  sops = {
+    defaultSopsFile = ../secrets/git_config.yaml;
+    age.keyFile = "/Users/ay/.config/sops/age/keys.txt";
+  };
+
+  sops.secrets.git_config = {};
 }

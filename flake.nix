@@ -10,9 +10,13 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "pkgs";
     };
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "pkgs";
+    };
   };
 
-  outputs = { self, pkgs, u_pkgs, hm, os }:
+  outputs = { self, pkgs, u_pkgs, hm, os, sops-nix }:
     let
       system = "aarch64-darwin"; # M1 Max
       unstable = u_pkgs.legacyPackages.${system};
@@ -31,6 +35,18 @@
           }
           ./config/system.nix
           ./config/brew.nix
+          # Integrate sops-nix
+          ({ config, pkgs, ... }: {
+            imports = [ sops-nix.darwinModules.sops ];
+          })
+        ];
+      };
+
+      # Development shell definition (if you want to keep it)
+      devShells.${system}.default = pkgs.legacyPackages.${system}.mkShell {
+        buildInputs = with pkgs.legacyPackages.${system}; [
+          age
+          sops
         ];
       };
     };

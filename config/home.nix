@@ -23,6 +23,7 @@
       ./zsh.nix
       ./zellij.nix
       ./helix.nix
+      ./tools/secret-git-config.nix
       ./tools/git.nix
       ./tools/gpg.nix
       ./tools/ssh.nix

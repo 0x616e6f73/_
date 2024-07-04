@@ -2,7 +2,16 @@
   programs.zsh = {
     enable = true;
 
-    initExtra = builtins.readFile ./.zshrc;
+    initExtra = builtins.readFile ./.zshrc + ''
+      function mkcd() {
+        if [[ $# -ne 1 ]]; then
+          echo "Usage: mkcd <directory>"
+          return 1
+        fi
+
+        mkdir -p "$1" && cd "$1"
+      }
+    '';
     enableAutosuggestions = true;
 
     shellAliases = {

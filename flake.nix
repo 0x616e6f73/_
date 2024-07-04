@@ -30,15 +30,16 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = { inherit unstable; };
-              users.ay = import ./config/home.nix;
+              users.ay = { pkgs, ... }: {
+                imports = [
+                  ./config/home.nix
+                  sops-nix.homeManagerModules.sops
+                ];
+              };
             };
           }
           ./config/system.nix
           ./config/brew.nix
-          # Integrate sops-nix
-          ({ config, pkgs, ... }: {
-            imports = [ sops-nix.darwinModules.sops ];
-          })
         ];
       };
 

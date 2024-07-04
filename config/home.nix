@@ -1,8 +1,7 @@
 { config, pkgs, lib, ... }:
-
 {
   home.username = "ay";
-  home.homeDirectory = "/Users/ay";
+  home.homeDirectory = lib.mkForce "/Users/ay";
   home.stateVersion = "23.11";
 
   fonts.fontconfig.enable = true;
@@ -30,5 +29,16 @@
     age.keyFile = "/Users/ay/.config/sops/age/keys.txt";
   };
 
-  sops.secrets.git_config = {};
+  sops.secrets.git_config = {
+    path = "${config.home.homeDirectory}/.gitconfig-secret";
+  };
+
+  # This ensures the secret is readable by your user
+  home.file.".gitconfig-secret".mode = "0600";
+
+  # Optional: Add this if you want to use the secret in your Git configuration
+  # programs.git = {
+  #   enable = true;
+  #   includes = [{ path = config.sops.secrets.git_config.path; }];
+  # };
 }

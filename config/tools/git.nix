@@ -5,31 +5,9 @@
     enable = true;
     aliases = {
       redo = "commit --amend -S";
-      switch-account = "!f() { git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; echo \"Switched to $1\"; }; f";
-      check-account = "!git config --list | grep -E \"^user\\.(name|email)\" | sort";
+      switch-account = "!f() { git config user.name \"$(git config user.$1.name)\" && git config user.email \"$(git config user.$1.email)\" && echo \"Switched to $1: $(git config user.name) <$(git config user.email)>\"; }; f";
+      check-account = "!git config user.name && git config user.email";
     };
-    ignores = [
-      ".DS_Store"
-      ".AppleDouble"
-      ".LSOverride"
-      "Icon\r"
-      "._*"
-      ".DocumentRevisions-V100"
-      ".fseventsd"
-      ".Spotlight-V100"
-      ".TemporaryItems"
-      ".Trashes"
-      ".VolumeIcon.icns"
-      ".com.apple.timemachine.donotpresent"
-      ".AppleDB"
-      ".AppleDesktop"
-      "Network Trash Folder"
-      "Temporary Items"
-      ".apdisk"
-      "*~"
-    ];
-    lfs.enable = true;
-    delta.enable = true;
     extraConfig = {
       core.editor = "${pkgs.helix}/bin/helix";
       pull.rebase = true;
@@ -41,8 +19,15 @@
     };
   };
 
-  home.activation.setGitConfig = config.lib.dag.entryAfter ["writeBoundary"] ''
-    ${pkgs.yq}/bin/yq eval ${config.sops.secrets.git_config.path} > $HOME/.gitconfig-secret
-    git config --global include.path $HOME/.gitconfig-secret
+  sops.secrets.git_config = {
+    path = "${config.home.homeDirectory}/.gitconfig-secret";
+    mode = "0600";
+  };
+
+  home.activation.setupGitConfig = config.lib.dag.entryAfter ["writeBoundary"] ''
+    if [ -f "${config.sops.secrets.git_config.path}" ]; then
+      ${pkgs.git}/bin/git config --global --remove-section include || true
+      ${pkgs.git}/bin/git config --global include.path "${config.sops.secrets.git_config.path}"
+    fi
   '';
 }

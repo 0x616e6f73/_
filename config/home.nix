@@ -31,14 +31,19 @@
 
   sops.secrets.git_config = {
     path = "${config.home.homeDirectory}/.gitconfig-secret";
+    mode = "0600";
   };
 
-  # This ensures the secret is readable by your user
-  home.file.".gitconfig-secret".mode = "0600";
+  programs.git = {
+    enable = true;
+    includes = [{ path = config.sops.secrets.git_config.path; }];
+  };
 
-  # Optional: Add this if you want to use the secret in your Git configuration
-  # programs.git = {
-  #   enable = true;
-  #   includes = [{ path = config.sops.secrets.git_config.path; }];
-  # };
+  # applying secret after creation
+  home.activation.setupGitConfig = config.lib.dag.entryAfter ["writeBoundary"] ''
+    if [ -f "${config.sops.secrets.git_config.path}" ]; then
+      ${pkgs.git}/bin/git config --global --remove-section include || true
+      ${pkgs.git}/bin/git config --global include.path "${config.sops.secrets.git_config.path}"
+    fi
+  '';
 }

@@ -1,68 +1,63 @@
 "ui.background" = { bg = "#151515" }
-"ui.text" = { fg = "#FFFFF0" }
+"ui.text" = { fg = "#E6D7C3" }
+"comment" = { fg = "#34A76F" }
+"constant" = { fg = "#FDDF6E" }
+"constant.numeric" = { fg = "#FDDF6E" }
+"string" = { fg = "#FBA445" } # Switched from #EA4727
+"variable" = { fg = "#5EC4FF" } # Changed from #3A9BD1 as requested
+"keyword" = { fg = "#EA4727" }
+"operator" = { fg = "#BD2423" } # Switched from #FBA445
+"function" = { fg = "#48E998" }
+"type" = { fg = "#2F6883" }
+"namespace" = { fg = "#5EC4FF" } # Changed to match the new blue
+"punctuation" = { fg = "#E6D7C3" }
+"punctuation.delimiter" = { fg = "#E6D7C3" }
+"punctuation.bracket" = { fg = "#E6D7C3" }
+"variable.other.member" = { fg = "#5EC4FF" } # Changed to match the new blue
+"variable.parameter" = { fg = "#E6D7C3" }
+"variable.builtin" = { fg = "#EA4727" } # Switched from #FBA445
+"constructor" = { fg = "#2F6883" }
+"special" = { fg = "#EA4727" } # Switched from #FBA445
+"markup.heading" = { fg = "#FDDF6E", modifiers = ["bold"] }
+"markup.list" = { fg = "#FBA445" } # Switched from #EA4727
+"markup.bold" = { fg = "#FDDF6E", modifiers = ["bold"] }
+"markup.italic" = { fg = "#5EC4FF", modifiers = [
+    "italic",
+] } # Changed to match the new blue
+"markup.link.url" = { fg = "#5EC4FF", modifiers = [
+    "underlined",
+] } # Changed to match the new blue
+"markup.link.text" = { fg = "#FDDF6E" }
+"markup.quote" = { fg = "#34A76F" }
+"markup.raw" = { fg = "#FDDF6E" }
+"diff.plus" = { fg = "#48E998" }
+"diff.minus" = { fg = "#FBA445" } # Switched from #EA4727
+"diff.delta" = { fg = "#FDDF6E" }
+"ui.cursor" = { fg = "#E6D7C3", modifiers = ["reversed"] }
+"ui.cursor.primary" = { fg = "#E6D7C3", modifiers = ["reversed"] }
+"ui.cursor.match" = { fg = "#FDDF6E", modifiers = ["underlined"] }
+"ui.selection" = { bg = "#2A2A2A" }
+"ui.selection.primary" = { bg = "#2A2A2A" }
+"ui.linenr" = { fg = "#4A3C2E" }
+"ui.linenr.selected" = { fg = "#E6D7C3" }
+"ui.statusline" = { fg = "#E6D7C3", bg = "#151515" }
+"ui.statusline.inactive" = { fg = "#34A76F", bg = "#151515" }
+"ui.popup" = { bg = "#1C1C1C" }
+"ui.window" = { bg = "#151515" }
+"ui.help" = { bg = "#1C1C1C", fg = "#E6D7C3" }
+"error" = { fg = "#FBA445" } # Switched from #EA4727
+"warning" = { fg = "#FDDF6E" }
+"info" = { fg = "#5EC4FF" } # Changed to match the new blue
+"hint" = { fg = "#34A76F" }
+"diagnostic.error" = { underline = { style = "curl", color = "#FBA445" } } # Switched from #EA4727
+"diagnostic.warning" = { underline = { style = "curl", color = "#FDDF6E" } }
+"diagnostic.info" = { underline = { style = "curl", color = "#5EC4FF" } } # Changed to match the new blue
+"diagnostic.hint" = { underline = { style = "curl", color = "#34A76F" } }
 
-"comment" = { fg = "#686b78" }
-"constant" = { fg = "#f5cf8f" }
-"constant.numeric" = { fg = "#f5cf8f" }
-"string" = { fg = "#f5cf8f" }
-"variable" = { fg = "#80cff8" }
-"keyword" = { fg = "#eb9f2e" }
-"operator" = { fg = "#eb9f2e" }
-"function" = { fg = "#80cff8" }
-"type" = { fg = "#009eff" }
-"namespace" = { fg = "#009eff" }
-
-"punctuation" = { fg = "#FFFFF0" }
-"punctuation.delimiter" = { fg = "#FFFFF0" }
-"punctuation.bracket" = { fg = "#FFFFF0" }
-
-"variable.other.member" = { fg = "#80cff8" }
-"variable.parameter" = { fg = "#FFFFF0" }
-"variable.builtin" = { fg = "#eb9f2e" }
-
-"constructor" = { fg = "#009eff" }
-"special" = { fg = "#eb9f2e" }
-
-"markup.heading" = { fg = "#80cff8", modifiers = ["bold"] }
-"markup.list" = { fg = "#eb9f2e" }
-"markup.bold" = { fg = "#f5cf8f", modifiers = ["bold"] }
-"markup.italic" = { fg = "#80cff8", modifiers = ["italic"] }
-"markup.link.url" = { fg = "#009eff", modifiers = ["underlined"] }
-"markup.link.text" = { fg = "#f5cf8f" }
-"markup.quote" = { fg = "#686b78" }
-"markup.raw" = { fg = "#f5cf8f" }
-
-"diff.plus" = { fg = "#0bda51" }
-"diff.minus" = { fg = "#f51423" }
-"diff.delta" = { fg = "#ffc40c" }
-
-"ui.cursor" = { fg = "#FFFFF0", modifiers = ["reversed"] }
-"ui.cursor.primary" = { fg = "#FFFFF0", modifiers = ["reversed"] }
-"ui.cursor.match" = { fg = "#ffc40c", modifiers = ["underlined"] }
-
-"ui.selection" = { bg = "#2F3137" }
-"ui.selection.primary" = { bg = "#2F3137" }
-
-"ui.linenr" = { fg = "#686b78" }
-"ui.linenr.selected" = { fg = "#FFFFF0" }
-
-"ui.statusline" = { fg = "#FFFFF0", bg = "#3f4044" }
-"ui.statusline.inactive" = { fg = "#686b78", bg = "#3f4044" }
-
-"ui.popup" = { bg = "#3f4044" }
-"ui.window" = { bg = "#3f4044" }
-"ui.help" = { bg = "#3f4044", fg = "#FFFFF0" }
-
-"error" = { fg = "#f51423" }
-"warning" = { fg = "#ffc40c" }
-"info" = { fg = "#009eff" }
-"hint" = { fg = "#0bda51" }
-
-"diagnostic.error" = { underline = { style = "curl", color = "#f51423" } }
-"diagnostic.warning" = { underline = { style = "curl", color = "#ffc40c" } }
-"diagnostic.info" = { underline = { style = "curl", color = "#009eff" } }
-"diagnostic.hint" = { underline = { style = "curl", color = "#0bda51" } }
+"ui.statusline.normal" = { fg = "#151515", bg = "#5EC4FF" } # Changed to match the new blue
+"ui.statusline.insert" = { fg = "#151515", bg = "#48E998" }
+"ui.statusline.select" = { fg = "#151515", bg = "#FDDF6E" }
 
 [palette]
 background = "#151515"
-foreground = "#FFFFF0"
+foreground = "#E6D7C3"

@@ -1,8 +1,8 @@
 { config, pkgs, ... }: {
-  programs.helix = {
+programs.helix = {
     enable = true;
     settings = {
-      theme = "arkdark";
+      theme = "ashys";
       editor = {
         line-number = "absolute";
         mouse = false;
@@ -25,9 +25,7 @@
       };
     };
   };
-
-  home.file.".config/helix/themes/arkdark.toml".source = ./themes/helix.toml;
-
+  home.file.".config/helix/themes/ashys.toml".source = ./themes/helix.toml;
   home.packages = with pkgs; [
     # Go
     gopls
@@ -63,7 +61,6 @@
     # YAML
     nodePackages.yaml-language-server
   ];
-
   # Ensure the binaries are in PATH
   home.sessionPath = [
     "${config.home.homeDirectory}/.nix-profile/bin"

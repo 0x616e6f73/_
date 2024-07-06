@@ -59,7 +59,7 @@
     # TOML
     taplo
     # Vue
-    nodePackages.vscode-langservers-extracted
+    nodePackages.volar
     # YAML
     nodePackages.yaml-language-server
   ];

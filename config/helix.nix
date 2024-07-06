@@ -27,4 +27,45 @@
   };
 
   home.file.".config/helix/themes/arkdark.toml".source = ./themes/helix.toml;
+
+  home.packages = with pkgs; [
+    # Go
+    gopls
+    delve  # for godlv DAP
+    # GraphQL
+    nodePackages.graphql-language-service-cli
+    # Haskell
+    haskell-language-server
+    # TypeScript/JavaScript
+    nodePackages.typescript-language-server
+    # JSON
+    nodePackages.vscode-json-languageserver
+    # LaTeX
+    texlab
+    # Lua
+    lua-language-server
+    # Markdown
+    marksman
+    # Nix
+    nil
+    # Python
+    python3Packages.python-lsp-server
+    # Racket
+    racket
+    # Rust (LLDB for DAP)
+    lldb
+    # Svelte
+    nodePackages.svelte-language-server
+    # TOML
+    taplo
+    # Vue
+    nodePackages.vscode-langservers-extracted
+    # YAML
+    nodePackages.yaml-language-server
+  ];
+
+  # Ensure the binaries are in PATH
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.nix-profile/bin"
+  ];
 }

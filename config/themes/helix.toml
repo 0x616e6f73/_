@@ -64,5 +64,5 @@
 "diagnostic.hint" = { underline = { style = "curl", color = "#0bda51" } }
 
 [palette]
-background = "#151515"
+background = "#121212"
 foreground = "#FFFFF0"

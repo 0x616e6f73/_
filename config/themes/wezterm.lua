@@ -54,6 +54,6 @@ config.use_dead_keys = false
 config.window_decorations = "RESIZE"
 
 config.default_prog = { "zsh", "-l" }
-config.term = "xterm-256color"
+config.term = "xterm-256color helix"
 
 return config

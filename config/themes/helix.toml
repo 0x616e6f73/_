@@ -1,0 +1,68 @@
+"ui.background" = { bg = "#1b1b1b" }
+"ui.text" = { fg = "#FFFFF0" }
+
+"comment" = { fg = "#686b78" }
+"constant" = { fg = "#f5cf8f" }
+"constant.numeric" = { fg = "#f5cf8f" }
+"string" = { fg = "#f5cf8f" }
+"variable" = { fg = "#80cff8" }
+"keyword" = { fg = "#eb9f2e" }
+"operator" = { fg = "#eb9f2e" }
+"function" = { fg = "#80cff8" }
+"type" = { fg = "#009eff" }
+"namespace" = { fg = "#009eff" }
+
+"punctuation" = { fg = "#FFFFF0" }
+"punctuation.delimiter" = { fg = "#FFFFF0" }
+"punctuation.bracket" = { fg = "#FFFFF0" }
+
+"variable.other.member" = { fg = "#80cff8" }
+"variable.parameter" = { fg = "#FFFFF0" }
+"variable.builtin" = { fg = "#eb9f2e" }
+
+"constructor" = { fg = "#009eff" }
+"special" = { fg = "#eb9f2e" }
+
+"markup.heading" = { fg = "#80cff8", modifiers = ["bold"] }
+"markup.list" = { fg = "#eb9f2e" }
+"markup.bold" = { fg = "#f5cf8f", modifiers = ["bold"] }
+"markup.italic" = { fg = "#80cff8", modifiers = ["italic"] }
+"markup.link.url" = { fg = "#009eff", modifiers = ["underlined"] }
+"markup.link.text" = { fg = "#f5cf8f" }
+"markup.quote" = { fg = "#686b78" }
+"markup.raw" = { fg = "#f5cf8f" }
+
+"diff.plus" = { fg = "#0bda51" }
+"diff.minus" = { fg = "#f51423" }
+"diff.delta" = { fg = "#ffc40c" }
+
+"ui.cursor" = { fg = "#FFFFF0", modifiers = ["reversed"] }
+"ui.cursor.primary" = { fg = "#FFFFF0", modifiers = ["reversed"] }
+"ui.cursor.match" = { fg = "#ffc40c", modifiers = ["underlined"] }
+
+"ui.selection" = { bg = "#2F3137" }
+"ui.selection.primary" = { bg = "#2F3137" }
+
+"ui.linenr" = { fg = "#686b78" }
+"ui.linenr.selected" = { fg = "#FFFFF0" }
+
+"ui.statusline" = { fg = "#FFFFF0", bg = "#3f4044" }
+"ui.statusline.inactive" = { fg = "#686b78", bg = "#3f4044" }
+
+"ui.popup" = { bg = "#3f4044" }
+"ui.window" = { bg = "#3f4044" }
+"ui.help" = { bg = "#3f4044", fg = "#FFFFF0" }
+
+"error" = { fg = "#f51423" }
+"warning" = { fg = "#ffc40c" }
+"info" = { fg = "#009eff" }
+"hint" = { fg = "#0bda51" }
+
+"diagnostic.error" = { underline = { style = "curl", color = "#f51423" } }
+"diagnostic.warning" = { underline = { style = "curl", color = "#ffc40c" } }
+"diagnostic.info" = { underline = { style = "curl", color = "#009eff" } }
+"diagnostic.hint" = { underline = { style = "curl", color = "#0bda51" } }
+
+[palette]
+background = "#1b1b1b"
+foreground = "#FFFFF0"

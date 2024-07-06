@@ -1,4 +1,4 @@
-"ui.background" = { bg = "#1b1b1b" }
+"ui.background" = { bg = "#151515" }
 "ui.text" = { fg = "#FFFFF0" }
 
 "comment" = { fg = "#686b78" }
@@ -64,5 +64,5 @@
 "diagnostic.hint" = { underline = { style = "curl", color = "#0bda51" } }
 
 [palette]
-background = "#121212"
+background = "#151515"
 foreground = "#FFFFF0"

@@ -16,7 +16,7 @@
     ./tools/ssh.nix
   ];
 
-  # home.file.".config/wezterm/wezterm.lua".text = builtins.readFile ./themes/wezterm.lua;
+  home.file.".config/wezterm/wezterm.lua".text = builtins.readFile ./themes/wezterm.lua;
 
   programs.bat = {
     enable = true;

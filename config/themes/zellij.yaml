@@ -11,7 +11,6 @@ themes:
     cyan: "#2F6883"
     black: "#0a0a0a"
     white: "#E6D7C3"
-
     tab_bar:
       background: "#151515"
       active_tab:
@@ -23,7 +22,6 @@ themes:
       new_tab:
         bg_color: "#151515"
         fg_color: "#E6D7C3"
-
     pane_frames:
       active:
         bg_color: "#5EC4FF"
@@ -31,7 +29,6 @@ themes:
       inactive:
         bg_color: "#151515"
         fg_color: "#E6D7C3"
-
     status_bar:
       background: "#151515"
       text: "#E6D7C3"

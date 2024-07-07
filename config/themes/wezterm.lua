@@ -13,7 +13,8 @@ config.font_size = 13.0
 config.bold_brightens_ansi_colors = true
 config.color_scheme = 'Glacier'
 config.colors = {
-    background = "#0a0a0a" -- Default background color
+    -- Normally #0a0a0a when going transparent
+    background = "#151515" -- Default background color
 }
 config.window_background_opacity = 0.8
 config.macos_window_background_blur = 25
@@ -37,8 +38,9 @@ local function update_appearance(window, pane)
             bottom = 0,
         }
     else
-        overrides.window_background_opacity = 0.8
-        overrides.colors = { background = "#0a0a0a" }
+        -- Normally this would be #0a0a0a @ 0.8, but I'm switching off of transparency while I rebuild the full dev suite
+        overrides.window_background_opacity = 1.0
+        overrides.colors = { background = "#151515" }
         overrides.window_padding = {
             left = 10,
             right = 10,

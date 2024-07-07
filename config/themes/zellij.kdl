@@ -1,43 +1,43 @@
 themes {
     custom {
-        bg 10 10 10 204
-        fg 230 215 195 255
-        red 234 71 39 255
-        green 72 233 152 255
-        yellow 253 223 110 255
-        blue 94 196 255 255
-        magenta 189 36 35 255
-        orange 251 164 69 255
-        cyan 47 104 131 255
-        black 10 10 10 255
-        white 230 215 195 255
+        fg "#E6D7C3"
+        bg "#151515"
+        black "#151515"
+        red "#EA4727"
+        green "#48E998"
+        yellow "#FDDF6E"
+        blue "#5EC4FF"
+        magenta "#BD2423"
+        cyan "#2F6883"
+        white "#E6D7C3"
+        orange "#FBA445"
 
         tab_bar {
-            background 10 10 10 204
+            background "#151515"
             active_tab {
-                bg_color 94 196 255 255
-                fg_color 21 21 21 255
+                bg_color "#5EC4FF"
+                fg_color "#151515"
             }
             inactive_tab {
-                bg_color 10 10 10 204
-                fg_color 230 215 195 255
+                bg_color "#151515"
+                fg_color "#E6D7C3"
             }
         }
 
         pane_frames {
             active {
-                bg_color 94 196 255 255
-                fg_color 21 21 21 255
+                bg_color "#5EC4FF"
+                fg_color "#151515"
             }
             inactive {
-                bg_color 10 10 10 204
-                fg_color 230 215 195 255
+                bg_color "#151515"
+                fg_color "#E6D7C3"
             }
         }
 
         status_bar {
-            background 10 10 10 204
-            text 230 215 195 255
+            background "#151515"
+            text "#E6D7C3"
         }
     }
 }

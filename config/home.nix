@@ -16,11 +16,11 @@
     ./tools/ssh.nix
   ];
 
-  # wezterm theming
+  # Wezterm Theme
   home.file.".config/wezterm/wezterm.lua".text = builtins.readFile ./themes/wezterm.lua;
 
-  #
-  home.file.".config/zellij/themes/zellij.yaml".source = ./themes/zellij.yaml;
+  # Zellij Theme
+  home.file.".config/zellij/themes/custom.kdl".source = ./themes/zellij.kdl;
 
   programs.bat = {
       enable = true;

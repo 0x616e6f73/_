@@ -8,3 +8,11 @@ function hx() {
         command hx "$@"
     fi
 }
+
+# Function to start Zellij with current date as session name
+zj() {
+  ZELLIJ_SESSION_NAME=$(date '+%Y-%m-%d') zellij "$@"
+}
+
+# Alias for quick access
+alias zellij='zj'

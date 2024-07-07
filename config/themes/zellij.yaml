@@ -1,37 +1,37 @@
 themes:
   ashys:
-    bg: "rgba(10, 10, 10, 0.8)"
-    fg: "#E6D7C3"
-    red: "#EA4727"
-    green: "#48E998"
-    blue: "#5EC4FF"
-    yellow: "#FDDF6E"
-    magenta: "#BD2423"
-    orange: "#FBA445"
-    cyan: "#2F6883"
-    black: "#0a0a0a"
-    white: "#E6D7C3"
+    bg: [10, 10, 10, 204] # RGBA format: [R, G, B, A], where A is 0-255 (204 is ~80% opacity)
+    fg: [230, 215, 195, 255]
+    red: [234, 71, 39, 255]
+    green: [72, 233, 152, 255]
+    blue: [94, 196, 255, 255]
+    yellow: [253, 223, 110, 255]
+    magenta: [189, 36, 35, 255]
+    orange: [251, 164, 69, 255]
+    cyan: [47, 104, 131, 255]
+    black: [10, 10, 10, 255]
+    white: [230, 215, 195, 255]
     tab_bar:
-      background: "rgba(10, 10, 10, 0.8)"
+      background: [10, 10, 10, 204]
       active_tab:
-        bg_color: "#5EC4FF"
-        fg_color: "#151515"
+        bg_color: [94, 196, 255, 255]
+        fg_color: [21, 21, 21, 255]
       inactive_tab:
-        bg_color: "rgba(10, 10, 10, 0.8)"
-        fg_color: "#E6D7C3"
+        bg_color: [10, 10, 10, 204]
+        fg_color: [230, 215, 195, 255]
       new_tab:
-        bg_color: "rgba(10, 10, 10, 0.8)"
-        fg_color: "#E6D7C3"
+        bg_color: [10, 10, 10, 204]
+        fg_color: [230, 215, 195, 255]
     pane_frames:
       active:
-        bg_color: "#5EC4FF"
-        fg_color: "#151515"
+        bg_color: [94, 196, 255, 255]
+        fg_color: [21, 21, 21, 255]
       inactive:
-        bg_color: "rgba(10, 10, 10, 0.8)"
-        fg_color: "#E6D7C3"
+        bg_color: [10, 10, 10, 204]
+        fg_color: [230, 215, 195, 255]
     status_bar:
-      background: "rgba(10, 10, 10, 0.8)"
-      text: "#E6D7C3"
+      background: [10, 10, 10, 204]
+      text: [230, 215, 195, 255]
       session:
         bg_color: "#5EC4FF"
         fg_color: "#151515"

@@ -24,7 +24,7 @@
         theme = "Ashys";
       };
       themes = {
-        ArkDark = {
+        Ashys = {
           src = ./themes/bat.tmTheme;
         };
       };

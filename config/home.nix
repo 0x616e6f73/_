@@ -19,9 +19,16 @@
   home.file.".config/wezterm/wezterm.lua".text = builtins.readFile ./themes/wezterm.lua;
 
   programs.bat = {
-    enable = true;
-    config.theme = "Flexoki";
-  };
+      enable = true;
+      config = {
+        theme = "Ashys";
+      };
+      themes = {
+        ArkDark = {
+          src = ./themes/bat.tmTheme;
+        };
+      };
+    };
 
   sops = {
     defaultSopsFile = ../secrets/git_config.yaml;

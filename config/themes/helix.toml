@@ -3,35 +3,31 @@
 "comment" = { fg = "#34A76F" }
 "constant" = { fg = "#FDDF6E" }
 "constant.numeric" = { fg = "#FDDF6E" }
-"string" = { fg = "#FBA445" } 
-"variable" = { fg = "#5EC4FF" }  
+"string" = { fg = "#FBA445" }
+"variable" = { fg = "#5EC4FF" }
 "keyword" = { fg = "#EA4727" }
-"operator" = { fg = "#BD2423" } 
+"operator" = { fg = "#BD2423" }
 "function" = { fg = "#48E998" }
 "type" = { fg = "#2F6883" }
-"namespace" = { fg = "#5EC4FF" }  
+"namespace" = { fg = "#5EC4FF" }
 "punctuation" = { fg = "#E6D7C3" }
 "punctuation.delimiter" = { fg = "#E6D7C3" }
 "punctuation.bracket" = { fg = "#E6D7C3" }
-"variable.other.member" = { fg = "#5EC4FF" }  
+"variable.other.member" = { fg = "#5EC4FF" }
 "variable.parameter" = { fg = "#E6D7C3" }
-"variable.builtin" = { fg = "#EA4727" }  
+"variable.builtin" = { fg = "#EA4727" }
 "constructor" = { fg = "#2F6883" }
-"special" = { fg = "#EA4727" }  
+"special" = { fg = "#EA4727" }
 "markup.heading" = { fg = "#FDDF6E", modifiers = ["bold"] }
-"markup.list" = { fg = "#FBA445" }  
+"markup.list" = { fg = "#FBA445" }
 "markup.bold" = { fg = "#FDDF6E", modifiers = ["bold"] }
-"markup.italic" = { fg = "#5EC4FF", modifiers = [
-    "italic",
-] } 
-"markup.link.url" = { fg = "#5EC4FF", modifiers = [
-    "underlined",
-] } 
+"markup.italic" = { fg = "#5EC4FF", modifiers = ["italic"] }
+"markup.link.url" = { fg = "#5EC4FF", modifiers = ["underlined"] }
 "markup.link.text" = { fg = "#FDDF6E" }
 "markup.quote" = { fg = "#34A76F" }
 "markup.raw" = { fg = "#FDDF6E" }
 "diff.plus" = { fg = "#48E998" }
-"diff.minus" = { fg = "#FBA445" } 
+"diff.minus" = { fg = "#FBA445" }
 "diff.delta" = { fg = "#FDDF6E" }
 "ui.cursor" = { fg = "#E6D7C3", modifiers = ["reversed"] }
 "ui.cursor.primary" = { fg = "#E6D7C3", modifiers = ["reversed"] }
@@ -45,16 +41,16 @@
 "ui.popup" = { bg = "#1C1C1C" }
 "ui.window" = { bg = "#151515" }
 "ui.help" = { bg = "#1C1C1C", fg = "#E6D7C3" }
-"error" = { fg = "#FBA445" }  
+"error" = { fg = "#FBA445" }
 "warning" = { fg = "#FDDF6E" }
-"info" = { fg = "#5EC4FF" }  
+"info" = { fg = "#5EC4FF" }
 "hint" = { fg = "#34A76F" }
-"diagnostic.error" = { underline = { style = "curl", color = "#FBA445" } } 
+"diagnostic.error" = { underline = { style = "curl", color = "#FBA445" } }
 "diagnostic.warning" = { underline = { style = "curl", color = "#FDDF6E" } }
-"diagnostic.info" = { underline = { style = "curl", color = "#5EC4FF" } }  
+"diagnostic.info" = { underline = { style = "curl", color = "#5EC4FF" } }
 "diagnostic.hint" = { underline = { style = "curl", color = "#34A76F" } }
 
-"ui.statusline.normal" = { fg = "#151515", bg = "#5EC4FF" } 
+"ui.statusline.normal" = { fg = "#151515", bg = "#5EC4FF" }
 "ui.statusline.insert" = { fg = "#151515", bg = "#48E998" }
 "ui.statusline.select" = { fg = "#151515", bg = "#FDDF6E" }
 

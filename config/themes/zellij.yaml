@@ -1,0 +1,71 @@
+themes:
+  ashys:
+    bg: "#151515"
+    fg: "#E6D7C3"
+    red: "#EA4727"
+    green: "#48E998"
+    blue: "#5EC4FF"
+    yellow: "#FDDF6E"
+    magenta: "#BD2423"
+    orange: "#FBA445"
+    cyan: "#2F6883"
+    black: "#0a0a0a"
+    white: "#E6D7C3"
+
+    tab_bar:
+      background: "#151515"
+      active_tab:
+        bg_color: "#5EC4FF"
+        fg_color: "#151515"
+      inactive_tab:
+        bg_color: "#151515"
+        fg_color: "#E6D7C3"
+      new_tab:
+        bg_color: "#151515"
+        fg_color: "#E6D7C3"
+
+    pane_frames:
+      active:
+        bg_color: "#5EC4FF"
+        fg_color: "#151515"
+      inactive:
+        bg_color: "#151515"
+        fg_color: "#E6D7C3"
+
+    status_bar:
+      background: "#151515"
+      text: "#E6D7C3"
+      session:
+        bg_color: "#5EC4FF"
+        fg_color: "#151515"
+      mode:
+        normal:
+          bg_color: "#48E998"
+          fg_color: "#151515"
+        locked:
+          bg_color: "#EA4727"
+          fg_color: "#151515"
+        resize:
+          bg_color: "#FDDF6E"
+          fg_color: "#151515"
+        pane:
+          bg_color: "#2F6883"
+          fg_color: "#151515"
+        tab:
+          bg_color: "#BD2423"
+          fg_color: "#151515"
+        search:
+          bg_color: "#FBA445"
+          fg_color: "#151515"
+        scroll:
+          bg_color: "#34A76F"
+          fg_color: "#151515"
+        enter_search:
+          bg_color: "#FBA445"
+          fg_color: "#151515"
+        session_select:
+          bg_color: "#5EC4FF"
+          fg_color: "#151515"
+        move:
+          bg_color: "#BD2423"
+          fg_color: "#151515"

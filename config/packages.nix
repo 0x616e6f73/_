@@ -40,5 +40,6 @@
       unixtools.script
       watch
       yabai
+      yazi
      ]);
 }

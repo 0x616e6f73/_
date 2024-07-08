@@ -19,6 +19,9 @@
   # Wezterm Theme
   home.file.".config/wezterm/wezterm.lua".text = builtins.readFile ./themes/wezterm.lua;
 
+  # Yazi configuration
+  home.file.".config/yazi/themes/yazi.toml".source = ./themes/yazi.toml;
+  
   # Zellij Theme
   home.file.".config/zellij/themes/custom.kdl".source = ./themes/zellij.kdl;
 

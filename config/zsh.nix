@@ -1,21 +1,7 @@
 { pkgs, lib, ... }: {
   programs.zsh = {
     enable = true;
-    initExtra = builtins.readFile ./.zshrc + ''
-      # Function to auto-attach to Zellij session or create a new one
-      zellij_auto_attach() {
-        if [[ -z "$ZELLIJ" ]]; then
-          if zellij list-sessions >/dev/null 2>&1; then
-            zellij attach -c
-          else
-            zellij
-          fi
-        fi
-      }
-
-      # Run the auto-attach function
-      zellij_auto_attach
-    '';
+    initExtra = builtins.readFile ./.zshrc;
     initExtraFirst = ''
       function mkcd() {
         if [[ $# -ne 1 ]]; then
@@ -29,11 +15,16 @@
         command hx "$@"
         wezterm cli set-user-var IS_HELIX false
       }
+      function zj() {
+        ZELLIJ_SESSION_NAME=$(date '+%Y-%m-%d') zellij "$@"
+      }
     '';
     enableAutosuggestions = true;
     shellAliases = {
       nix-rebuild = "darwin-rebuild switch --flake ~/_";
       nix-gc = "nix-collect-garbage --delete-old";
+      zellij = "zj";
+      "zj das" = "zellij delete-all-sessions";
     };
   };
   programs.starship = {

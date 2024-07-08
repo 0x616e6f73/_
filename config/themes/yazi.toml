@@ -1,0 +1,98 @@
+# color scheme for yazi
+[manager]
+cwd = { fg = "#E6D7C3" }
+
+[status]
+separator_open  = ""
+separator_close = ""
+
+[status.normal]
+fg   = "#151515"
+bg   = "#5EC4FF"
+
+[status.select]
+fg   = "#151515"
+bg   = "#48E998"
+
+[status.insert]
+fg   = "#151515"
+bg   = "#FDDF6E"
+
+[status.visual]
+fg   = "#151515"
+bg   = "#FBA445"
+
+[status.rename]
+fg   = "#151515"
+bg   = "#BD2423"
+
+[status.delete]
+fg   = "#151515"
+bg   = "#EA4727"
+
+[log]
+debug = { fg = "#5EC4FF" }
+info  = { fg = "#48E998" }
+warn  = { fg = "#FDDF6E" }
+error = { fg = "#EA4727" }
+
+[filetype]
+rules = [
+	# Images
+	{ mime = "image/*", fg = "#48E998" },
+
+	# Videos
+	{ mime = "video/*", fg = "#5EC4FF" },
+
+	# Audio
+	{ mime = "audio/*", fg = "#FDDF6E" },
+
+	# Archives
+	{ mime = "application/zip", fg = "#FBA445" },
+	{ mime = "application/gzip", fg = "#FBA445" },
+	{ mime = "application/x-tar", fg = "#FBA445" },
+
+	# Fallback
+	{ name = "*", fg = "#E6D7C3" },
+]
+
+[icon]
+rules = [
+	# Default fallback
+	{ name = "*", text = "" },
+	# Directory
+	{ type = "directory", text = "" },
+	# Executable
+	{ type = "executable", text = "" },
+	# Regular file
+	{ type = "file", text = "" },
+]
+
+[input]
+border   = { fg = "#5EC4FF" }
+title    = { fg = "#E6D7C3" }
+value    = { fg = "#E6D7C3" }
+selected = { fg = "#151515", bg = "#5EC4FF" }
+
+[completion]
+border   = { fg = "#5EC4FF" }
+active   = { fg = "#151515", bg = "#5EC4FF" }
+inactive = { fg = "#E6D7C3" }
+
+[select]
+border   = { fg = "#48E998" }
+active   = { fg = "#151515", bg = "#48E998" }
+inactive = { fg = "#E6D7C3" }
+
+[tasks]
+border  = { fg = "#FDDF6E" }
+title   = { fg = "#E6D7C3" }
+hovered = { underline = true }
+
+[which]
+mask            = { bg = "#151515CC" }
+cand            = { fg = "#E6D7C3" }
+rest            = { fg = "#5EC4FF" }
+desc            = { fg = "#48E998" }
+separator       = "  "
+separator_style = { fg = "#FDDF6E" }

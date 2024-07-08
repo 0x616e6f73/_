@@ -24,7 +24,6 @@
       nix-rebuild = "darwin-rebuild switch --flake ~/_";
       nix-gc = "nix-collect-garbage --delete-old";
       zellij = "zj";
-      "zj das" = "zellij delete-all-sessions";
     };
   };
   programs.starship = {

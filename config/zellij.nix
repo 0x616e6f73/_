@@ -5,7 +5,12 @@
     settings = {
       theme = "custom";
       pane_frames = false;
-      ui.pane_frames.rounded_corners = false;
+      ui = {
+        pane_frames = {
+          rounded_corners = false;
+          hide_session_name = true;  # This will hide the session name
+        };
+      };
       simplified_ui = true;
       default_mode = "normal";
       mouse_mode = true;

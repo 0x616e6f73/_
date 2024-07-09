@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-programs.helix = {
+  programs.helix = {
     enable = true;
     settings = {
       theme = "ashys";
@@ -20,6 +20,119 @@ programs.helix = {
             normal = "NORMAL";
             insert = "INSERT";
             select = "SELECT";
+          };
+        };
+        soft-wrap = {
+          enable = true;
+        };
+        lsp = {
+          display-inlay-hints = true;
+          display-messages = true;
+        };
+        color-modes = true;
+      };
+    };
+    languages = {
+      language = [
+        {
+          name = "go";
+          auto-format = true;
+          language-server = { command = "gopls"; };
+        }
+        {
+          name = "graphql";
+          auto-format = true;
+          language-server = { command = "graphql-lsp"; args = ["server" "-m" "stream"]; };
+        }
+        {
+          name = "haskell";
+          auto-format = true;
+          language-server = { command = "haskell-language-server-wrapper"; args = ["--lsp"]; };
+        }
+        {
+          name = "typescript";
+          auto-format = true;
+          language-server = { command = "typescript-language-server"; args = ["--stdio"]; };
+        }
+        {
+          name = "javascript";
+          auto-format = true;
+          language-server = { command = "typescript-language-server"; args = ["--stdio"]; };
+        }
+        {
+          name = "json";
+          auto-format = true;
+          language-server = { command = "vscode-json-languageserver"; args = ["--stdio"]; };
+        }
+        {
+          name = "latex";
+          auto-format = true;
+          language-server = { command = "texlab"; };
+        }
+        {
+          name = "lua";
+          auto-format = true;
+          language-server = { command = "lua-language-server"; };
+        }
+        {
+          name = "markdown";
+          auto-format = true;
+          language-server = { command = "marksman"; args = ["server"]; };
+        }
+        {
+          name = "nix";
+          auto-format = true;
+          language-server = { command = "nil"; };
+        }
+        {
+          name = "python";
+          auto-format = true;
+          language-server = { command = "pylsp"; };
+        }
+        {
+          name = "racket";
+          auto-format = true;
+          language-server = { command = "racket"; args = ["-l" "racket-langserver"]; };
+        }
+        {
+          name = "rust";
+          auto-format = true;
+          language-server = { command = "rust-analyzer"; };
+        }
+        {
+          name = "svelte";
+          auto-format = true;
+          language-server = { command = "svelteserver"; args = ["--stdio"]; };
+        }
+        {
+          name = "toml";
+          auto-format = true;
+          language-server = { command = "taplo"; args = ["lsp" "stdio"]; };
+        }
+        {
+          name = "vue";
+          auto-format = true;
+          language-server = { command = "volar-server"; args = ["--stdio"]; };
+        }
+        {
+          name = "yaml";
+          auto-format = true;
+          language-server = { command = "yaml-language-server"; args = ["--stdio"]; };
+        }
+      ];
+      language-server = {
+        gopls = {
+          config.hints = { assignVariableTypes = true; compositeLiteralFields = true; constantValues = true; functionTypeParameters = true; parameterNames = true; rangeVariableTypes = true; };
+        };
+        rust-analyzer = {
+          config = {
+            checkOnSave = { command = "clippy"; };
+            inlayHints = { enable = true; chainingHints = true; typeHints = true; parameterHints = true; };
+          };
+        };
+        typescript-language-server = {
+          config = {
+            inlayHints = { includeInlayParameterNameHints = "all"; includeInlayParameterNameHintsWhenArgumentMatchesName = true; includeInlayFunctionParameterTypeHints = true; includeInlayVariableTypeHints = true; includeInlayPropertyDeclarationTypeHints = true; includeInlayFunctionLikeReturnTypeHints = true; includeInlayEnumMemberValueHints = true; };
           };
         };
       };

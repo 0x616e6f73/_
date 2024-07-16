@@ -1,5 +1,7 @@
 "ui.background" = {}  # Removed bg property
 "ui.text" = { fg = "#E6D7C3" }
+"ui.text.focus" = { fg = "#0a0a0a", bg = "#48E998" }  # This controls the branch name styling
+"ui.virtual.ruler" = { bg = "#48E99820" }  # This adds a subtle background to separate it
 "comment" = { fg = "#34A76F" }
 "constant" = { fg = "#FDDF6E" }
 "constant.numeric" = { fg = "#FDDF6E" }
@@ -49,9 +51,9 @@
 "diagnostic.warning" = { underline = { style = "curl", color = "#FDDF6E" } }
 "diagnostic.info" = { underline = { style = "curl", color = "#5EC4FF" } }
 "diagnostic.hint" = { underline = { style = "curl", color = "#34A76F" } }
-"ui.statusline.normal" = { fg = "#0a0a0a", bg = "#5EC4FF80" }  # Added some transparency
-"ui.statusline.insert" = { fg = "#0a0a0a", bg = "#48E99880" }  # Added some transparency
-"ui.statusline.select" = { fg = "#0a0a0a", bg = "#FDDF6E80" }  # Added some transparency
+"ui.statusline.normal" = { fg = "#0a0a0a", bg = "#48E99880" }  # Added some transparency
+"ui.statusline.insert" = { fg = "#0a0a0a", bg = "#FDDF6E80" }  # Added some transparency
+"ui.statusline.select" = { fg = "#0a0a0a", bg = "#AD2421" }  # Added some transparency
 
 [palette]
 # Removed background property

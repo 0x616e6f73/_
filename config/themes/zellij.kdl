@@ -11,7 +11,18 @@ themes {
         cyan "#2F6883"
         white "#E6D7C3"
         orange "#FBA445"
+    }
+}
 
+ui {
+    pane_frames {
+        rounded_corners true
+        hide_session_name false
+    }
+}
+
+themes {
+    custom {
         tab_bar {
             background "#0a0a0a"
             active_tab {
@@ -23,7 +34,6 @@ themes {
                 fg_color "#E6D7C3"
             }
         }
-
         pane_frames {
             active {
                 bg_color "#5EC4FF"
@@ -34,7 +44,6 @@ themes {
                 fg_color "#E6D7C3"
             }
         }
-
         status_bar {
             background "#0a0a0a"
             text "#E6D7C3"

@@ -1,8 +1,8 @@
 themes {
     custom {
         fg "#E6D7C3"
-        bg "#151515"
-        black "#151515"
+        bg "#0a0a0a"
+        black "#0a0a0a"
         red "#EA4727"
         green "#48E998"
         yellow "#FDDF6E"
@@ -13,13 +13,13 @@ themes {
         orange "#FBA445"
 
         tab_bar {
-            background "#151515"
+            background "#0a0a0a"
             active_tab {
                 bg_color "#5EC4FF"
-                fg_color "#151515"
+                fg_color "#0a0a0a"
             }
             inactive_tab {
-                bg_color "#151515"
+                bg_color "#0a0a0a"
                 fg_color "#E6D7C3"
             }
         }
@@ -27,16 +27,16 @@ themes {
         pane_frames {
             active {
                 bg_color "#5EC4FF"
-                fg_color "#151515"
+                fg_color "#0a0a0a"
             }
             inactive {
-                bg_color "#151515"
+                bg_color "#0a0a0a"
                 fg_color "#E6D7C3"
             }
         }
 
         status_bar {
-            background "#151515"
+            background "#0a0a0a"
             text "#E6D7C3"
         }
     }

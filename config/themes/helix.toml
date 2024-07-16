@@ -1,4 +1,4 @@
-"ui.background" = { bg = "#151515" }
+"ui.background" = { bg = "#0a0a0a" }
 "ui.text" = { fg = "#E6D7C3" }
 "comment" = { fg = "#34A76F" }
 "constant" = { fg = "#FDDF6E" }
@@ -36,10 +36,10 @@
 "ui.selection.primary" = { bg = "#2A2A2A" }
 "ui.linenr" = { fg = "#4A3C2E" }
 "ui.linenr.selected" = { fg = "#E6D7C3" }
-"ui.statusline" = { fg = "#E6D7C3", bg = "#151515" }
-"ui.statusline.inactive" = { fg = "#34A76F", bg = "#151515" }
+"ui.statusline" = { fg = "#E6D7C3", bg = "#0a0a0a" }
+"ui.statusline.inactive" = { fg = "#34A76F", bg = "#0a0a0a" }
 "ui.popup" = { bg = "#1C1C1C" }
-"ui.window" = { bg = "#151515" }
+"ui.window" = { bg = "#0a0a0a" }
 "ui.help" = { bg = "#1C1C1C", fg = "#E6D7C3" }
 "error" = { fg = "#FBA445" }
 "warning" = { fg = "#FDDF6E" }
@@ -50,10 +50,10 @@
 "diagnostic.info" = { underline = { style = "curl", color = "#5EC4FF" } }
 "diagnostic.hint" = { underline = { style = "curl", color = "#34A76F" } }
 
-"ui.statusline.normal" = { fg = "#151515", bg = "#5EC4FF" }
-"ui.statusline.insert" = { fg = "#151515", bg = "#48E998" }
-"ui.statusline.select" = { fg = "#151515", bg = "#FDDF6E" }
+"ui.statusline.normal" = { fg = "#0a0a0a", bg = "#5EC4FF" }
+"ui.statusline.insert" = { fg = "#0a0a0a", bg = "#48E998" }
+"ui.statusline.select" = { fg = "#0a0a0a", bg = "#FDDF6E" }
 
 [palette]
-background = "#151515"
+background = "#0a0a0a"
 foreground = "#E6D7C3"

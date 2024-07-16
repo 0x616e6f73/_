@@ -14,7 +14,7 @@ config.bold_brightens_ansi_colors = true
 config.color_scheme = 'Glacier'
 config.colors = {
     -- Normally #0a0a0a when going transparent
-    background = "#151515" -- Default background color
+    background = "#0a0a0a" -- Default background color
 }
 config.window_background_opacity = 0.8
 config.macos_window_background_blur = 25
@@ -30,7 +30,7 @@ local function update_appearance(window, pane)
     local foreground_process = pane:get_foreground_process_name()
     if foreground_process:find("hx") then
         overrides.window_background_opacity = 1.0
-        overrides.colors = { background = "#151515" }
+        overrides.colors = { background = "#0a0a0a" }
         overrides.window_padding = {
             left = 0,
             right = 0,
@@ -39,8 +39,8 @@ local function update_appearance(window, pane)
         }
     else
         -- Normally this would be #0a0a0a @ 0.8, but I'm switching off of transparency while I rebuild the full dev suite
-        overrides.window_background_opacity = 1.0
-        overrides.colors = { background = "#151515" }
+        overrides.window_background_opacity = 0.8
+        overrides.colors = { background = "#0a0a0a" }
         overrides.window_padding = {
             left = 10,
             right = 10,

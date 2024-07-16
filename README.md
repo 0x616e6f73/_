@@ -4,9 +4,12 @@ hello, world.
 ## things to improve
 
 **helix**
-- [ ] todo/fixme-esque annotation highlights
-- [ ] inline error lens
-- [ ] enable soft wrap
+- [X] todo/fixme-esque annotation highlights
+- [X] inline error lens
+- [X] enable soft wrap
+- [ ] swap normal/insert color modes (red / yellow)
+- [ ] create space between mode and git branch name
+
 
 **zellij**
 - [X] create `zj das` alias (i'm an idiot, `zj da` exists -- going to undo the alias)

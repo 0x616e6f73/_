@@ -14,6 +14,9 @@
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "pkgs";
     };
+    ghostty = {
+      url = "git+ssh://git@github.com/ghostty-org/ghostty";
+    };
   };
 
   outputs = { self, pkgs, u_pkgs, hm, os, sops-nix }:

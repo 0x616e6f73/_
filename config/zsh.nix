@@ -11,9 +11,7 @@
         mkdir -p "$1" && cd "$1"
       }
       function hx() {
-        wezterm cli set-user-var IS_HELIX true
         command hx "$@"
-        wezterm cli set-user-var IS_HELIX false
       }
       function zj() {
         ZELLIJ_SESSION_NAME=$(date '+%Y-%m-%d') zellij "$@"

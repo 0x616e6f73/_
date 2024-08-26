@@ -21,7 +21,6 @@
       "plex"
       "spotify"
       "tailscale"
-      "wezterm"
     ];
   };
 }

@@ -14,11 +14,8 @@
     ./tools/git.nix
     ./tools/gpg.nix
     ./tools/ssh.nix
+    ./ghostty.nix
   ];
-
-  # Wezterm Theme
-  home.file.".config/wezterm/wezterm.lua".text = builtins.readFile ./themes/wezterm.lua;
-
   # Yazi configuration
   home.file.".config/yazi/themes/yazi.toml".source = ./themes/yazi.toml;
   

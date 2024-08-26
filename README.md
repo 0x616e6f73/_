@@ -3,13 +3,19 @@ hello, world.
 
 ## things to improve
 
+**git-sops**
+- [ ] reinit all ssh keys for accounts
+- [ ] update `tools/ssh.nix` with new paths to keys
+- [ ] add url rewrite rules in the `extraConfig` section in `tools/git.nix` to map HTTPS URLs to the appropriate ssh configs
+- [ ] add sops secret declarations for each ssh key in `tools/git.nix`
+- [ ] modify the activation script to ensure the correct permissions are set on the SSH keys.
+
 **helix**
 - [X] todo/fixme-esque annotation highlights
 - [X] inline error lens
 - [X] enable soft wrap
 - [ ] swap normal/insert color modes (red / yellow)
 - [ ] create space between mode and git branch name
-
 
 **zellij**
 - [X] create `zj das` alias (i'm an idiot, `zj da` exists -- going to undo the alias)

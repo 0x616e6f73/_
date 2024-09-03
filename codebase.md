@@ -35,6 +35,9 @@ This is a binary file of the type: Binary
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "pkgs";
     };
+    ghostty = {
+      url = "git+ssh://git@github.com/ghostty-org/ghostty";
+    };
   };
 
   outputs = { self, pkgs, u_pkgs, hm, os, sops-nix }:
@@ -348,11 +351,17 @@ hello, world.
 - [ ] implement plugins (at least the reddit one) in zj tab group
 - [ ] create layout file templates
 - [ ] figure out how to reattach prev zj session on start (maybe give user a choice between new or reattach on open?)
+- [ ] implement rust plugin for interface 
+- [ ] change theme to gruvbox dark
 
 **yazi**
 - [X] add yazi
 - [-] configure yazi color theme (pushed some changes but they dont work atm and i'm too lazy to figure out rn)
 - [ ] look into terminal-apps.dev on brave and see if yazi is actually the best option
+
+**ghostty**
+- [ ] switch to gruvbox dark
+- [ ] fix border spacing for helix window (keep transparent bg)
 
 ```
 
@@ -410,7 +419,15 @@ sops:
 { pkgs, lib, ... }: {
   programs.zsh = {
     enable = true;
-    initExtra = builtins.readFile ./.zshrc;
+    initExtra = builtins.readFile ./.zshrc + ''
+      # Add Nix and Home Manager paths
+      export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH
+
+      # Ensure nix commands are available
+      if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+        . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+      fi
+    '';
     initExtraFirst = ''
       function mkcd() {
         if [[ $# -ne 1 ]]; then
@@ -420,9 +437,7 @@ sops:
         mkdir -p "$1" && cd "$1"
       }
       function hx() {
-        wezterm cli set-user-var IS_HELIX true
         command hx "$@"
-        wezterm cli set-user-var IS_HELIX false
       }
       function zj() {
         ZELLIJ_SESSION_NAME=$(date '+%Y-%m-%d') zellij "$@"
@@ -589,11 +604,8 @@ sops:
     ./tools/git.nix
     ./tools/gpg.nix
     ./tools/ssh.nix
+    ./ghostty.nix
   ];
-
-  # Wezterm Theme
-  home.file.".config/wezterm/wezterm.lua".text = builtins.readFile ./themes/wezterm.lua;
-
   # Yazi configuration
   home.file.".config/yazi/themes/yazi.toml".source = ./themes/yazi.toml;
   
@@ -825,6 +837,28 @@ sops:
 
 ```
 
+# config/ghostty.nix
+
+```nix
+{ config, pkgs, ... }: {
+  home.file.".config/ghostty/config".text = ''
+    background = #0a0a0a
+    foreground = #E6D7C3
+    font-family = MesloLGS NF
+    font-size = 13
+    window-padding = 10
+    opacity = 0.8
+    macos-option-as-alt = true
+    
+    keybind = ctrl+shift+t=new_tab
+    keybind = ctrl+shift+w=close_surface
+    keybind = ctrl+shift+l=next_tab
+    keybind = ctrl+shift+h=previous_tab
+  '';
+}
+
+```
+
 # config/brew.nix
 
 ```nix
@@ -851,7 +885,6 @@ sops:
       "plex"
       "spotify"
       "tailscale"
-      "wezterm"
     ];
   };
 }
@@ -896,25 +929,36 @@ This is a binary file of the type: Binary
     controlMaster = "auto";
     controlPath = "/tmp/ssh-%C";
     forwardAgent = true;
+    serverAliveInterval = 0;
+    serverAliveCountMax = 3;
+    hashKnownHosts = false;
+    userKnownHostsFile = "~/.ssh/known_hosts";
+    extraConfig = ''
+      ControlPersist no
+    '';
     includes = [
       "${config.home.homeDirectory}/.ssh/private.config"
       "${config.home.homeDirectory}/.orbstack/ssh/config"
     ];
     matchBlocks = {
-      "github.com-account1" = {
-        hostname = "github.com";
-        user = "git";
-        identityFile = "~/.ssh/id_ed25519_account1_github";
+      "*" = {
+        compression = true;
+        forwardAgent = true;
       };
-      "github.com-account2" = {
+      "github.com-ay" = {
         hostname = "github.com";
         user = "git";
-        identityFile = "~/.ssh/id_ed25519_account2_github";
+        identityFile = "~/.ssh/id_ed25519_ay_github";
       };
-      "github.com-account3" = {
+      "github.com-a0" = {
         hostname = "github.com";
         user = "git";
-        identityFile = "~/.ssh/id_ed25519_account3_github";
+        identityFile = "~/.ssh/id_ed25519_a0_github";
+      };
+      "github.com-db" = {
+        hostname = "github.com";
+        user = "git";
+        identityFile = "~/.ssh/id_ed25519_db_github";
       };
     };
   };

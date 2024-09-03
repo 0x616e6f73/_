@@ -5,8 +5,8 @@
     enable = true;
     aliases = {
       redo = "commit --amend -S";
-      switch-account = "!f() { git config user.name \"$(git config user.$1.name)\" && git config user.email \"$(git config user.$1.email)\" && echo \"Switched to $1: $(git config user.name) <$(git config user.email)>\"; }; f";
-      check-account = "!git config user.name && git config user.email";
+      account-switch = "!f() { git config user.name \"$(git config user.$1.name)\" && git config user.email \"$(git config user.$1.email)\" && git config core.sshCommand \"ssh -i ~/.ssh/id_ed25519_$1_github\" && echo \"Switched to $1: $(git config user.name) <$(git config user.email)> using SSH key ~/.ssh/id_ed25519_$1_github\"; }; f";
+      account-check = "!git config user.name && git config user.email && git config core.sshCommand";
     };
     extraConfig = {
       core.editor = "${pkgs.helix}/bin/helix";

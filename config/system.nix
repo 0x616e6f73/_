@@ -27,6 +27,9 @@
     enable = true;
   };
 
+  # Ensure darwin-rebuild is available in the system PATH
+  environment.systemPackages = [ pkgs.darwin.darwin-rebuild ];
+
   system.defaults = {
     SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
     screencapture.type = "png";

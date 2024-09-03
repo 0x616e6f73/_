@@ -5,11 +5,22 @@
     controlMaster = "auto";
     controlPath = "/tmp/ssh-%C";
     forwardAgent = true;
+    serverAliveInterval = 0;
+    serverAliveCountMax = 3;
+    hashKnownHosts = false;
+    userKnownHostsFile = "~/.ssh/known_hosts";
+    extraConfig = ''
+      ControlPersist no
+    '';
     includes = [
       "${config.home.homeDirectory}/.ssh/private.config"
       "${config.home.homeDirectory}/.orbstack/ssh/config"
     ];
     matchBlocks = {
+      "*" = {
+        compression = true;
+        forwardAgent = true;
+      };
       "github.com-ay" = {
         hostname = "github.com";
         user = "git";

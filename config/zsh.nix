@@ -9,6 +9,11 @@
       if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
         . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
       fi
+
+      # Function to start Zellij with current date as session name
+      zj() {
+        ZELLIJ_SESSION_NAME=$(date '+%Y-%m-%d') command zellij "$@"
+      }
     '';
     initExtraFirst = ''
       function mkcd() {
@@ -27,15 +32,11 @@
           command hx "$@"
         fi
       }
-      function zj() {
-        ZELLIJ_SESSION_NAME=$(date '+%Y-%m-%d') zellij "$@"
-      }
     '';
     enableAutosuggestions = true;
     shellAliases = {
       nix-rebuild = "darwin-rebuild switch --flake ~/_";
       nix-gc = "nix-collect-garbage --delete-old";
-      zellij = "zj";
     };
   };
   programs.starship = {

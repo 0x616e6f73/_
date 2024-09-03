@@ -10,20 +10,21 @@
       "${config.home.homeDirectory}/.orbstack/ssh/config"
     ];
     matchBlocks = {
-      "github.com-account1" = {
+      "github.com-ay" = {
         hostname = "github.com";
         user = "git";
-        identityFile = "~/.ssh/id_ed25519_account1_github";
+        identityFile = "~/.ssh/id_ed25519_ay_github";
       };
-      "github.com-account2" = {
+      # Keep the other accounts if you still need them
+      "github.com-a0" = {
         hostname = "github.com";
         user = "git";
-        identityFile = "~/.ssh/id_ed25519_account2_github";
+        identityFile = "~/.ssh/id_ed25519_a0_github";
       };
-      "github.com-account3" = {
+      "github.com-db" = {
         hostname = "github.com";
         user = "git";
-        identityFile = "~/.ssh/id_ed25519_account3_github";
+        identityFile = "~/.ssh/id_ed25519_db_github";
       };
     };
   };

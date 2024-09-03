@@ -15,7 +15,6 @@
         user = "git";
         identityFile = "~/.ssh/id_ed25519_ay_github";
       };
-      # Keep the other accounts if you still need them
       "github.com-a0" = {
         hostname = "github.com";
         user = "git";

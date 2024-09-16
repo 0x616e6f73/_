@@ -20,13 +20,7 @@
 
       # Function for Helix with WezTerm integration
       function hx() {
-        if command -v wezterm > /dev/null 2>&1; then
-          wezterm cli set-user-var IS_HELIX true
           command hx "$@"
-          wezterm cli set-user-var IS_HELIX false
-        else
-          command hx "$@"
-        fi
       }
 
       # Function to create and change to a new directory

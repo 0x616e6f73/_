@@ -37,103 +37,155 @@
         {
           name = "go";
           auto-format = true;
-          language-servers = { command = "gopls"; };
+          language-servers = [ "gopls" ];
         }
         {
           name = "graphql";
           auto-format = true;
-          language-servers = { command = "graphql-lsp"; args = ["server" "-m" "stream"]; };
+          language-servers = [ "graphql-lsp" ];
         }
         {
           name = "haskell";
           auto-format = true;
-          language-servers = { command = "haskell-language-server-wrapper"; args = ["--lsp"]; };
+          language-servers = [ "haskell-language-server-wrapper" ];
         }
         {
           name = "typescript";
           auto-format = true;
-          language-servers = { command = "typescript-language-server"; args = ["--stdio"]; };
+          language-servers = [ "typescript-language-server" ];
         }
         {
           name = "javascript";
           auto-format = true;
-          language-servers = { command = "typescript-language-server"; args = ["--stdio"]; };
+          language-servers = [ "typescript-language-server" ];
         }
         {
           name = "json";
           auto-format = true;
-          language-servers = { command = "vscode-json-languageserver"; args = ["--stdio"]; };
+          language-servers = [ "vscode-json-languageserver" ];
         }
         {
           name = "latex";
           auto-format = true;
-          language-servers = { command = "texlab"; };
+          language-servers = [ "texlab" ];
         }
         {
           name = "lua";
           auto-format = true;
-          language-servers = { command = "lua-language-server"; };
+          language-servers = [ "lua-language-server" ];
         }
         {
           name = "markdown";
           auto-format = true;
-          language-servers = { command = "marksman"; args = ["server"]; };
+          language-servers = [ "marksman" ];
         }
         {
           name = "nix";
           auto-format = true;
-          language-servers = { command = "nil"; };
+          language-servers = [ "nil" ];
         }
         {
           name = "python";
           auto-format = true;
-          language-servers = { command = "pylsp"; };
+          language-servers = [ "pylsp" ];
         }
         {
           name = "racket";
           auto-format = true;
-          language-servers = { command = "racket"; args = ["-l" "racket-langserver"]; };
+          language-servers = [ "racket" ];
         }
         {
           name = "rust";
           auto-format = true;
-          language-servers = { command = "rust-analyzer"; };
+          language-servers = [ "rust-analyzer" ];
         }
         {
           name = "svelte";
           auto-format = true;
-          language-servers = { command = "svelteserver"; args = ["--stdio"]; };
+          language-servers = [ "svelteserver" ];
         }
         {
           name = "toml";
           auto-format = true;
-          language-servers = { command = "taplo"; args = ["lsp" "stdio"]; };
+          language-servers = [ "taplo" ];
         }
         {
           name = "vue";
           auto-format = true;
-          language-servers = { command = "volar-server"; args = ["--stdio"]; };
+          language-servers = [ "volar-server" ];
         }
         {
           name = "yaml";
           auto-format = true;
-          language-servers = { command = "yaml-language-server"; args = ["--stdio"]; };
+          language-servers = [ "yaml-language-server" ];
         }
       ];
-      language-servers = {
+      language-server = {
         gopls = {
+          command = "gopls";
           config.hints = { assignVariableTypes = true; compositeLiteralFields = true; constantValues = true; functionTypeParameters = true; parameterNames = true; rangeVariableTypes = true; };
         };
-        rust-analyzer = {
+        "graphql-lsp" = {
+          command = "graphql-lsp";
+          args = ["server" "-m" "stream"];
+        };
+        "haskell-language-server-wrapper" = {
+          command = "haskell-language-server-wrapper";
+          args = ["--lsp"];
+        };
+        "typescript-language-server" = {
+          command = "typescript-language-server";
+          args = ["--stdio"];
+          config = {
+            inlayHints = { includeInlayParameterNameHints = "all"; includeInlayParameterNameHintsWhenArgumentMatchesName = true; includeInlayFunctionParameterTypeHints = true; includeInlayVariableTypeHints = true; includeInlayPropertyDeclarationTypeHints = true; includeInlayFunctionLikeReturnTypeHints = true; includeInlayEnumMemberValueHints = true; };
+          };
+        };
+        "vscode-json-languageserver" = {
+          command = "vscode-json-languageserver";
+          args = ["--stdio"];
+        };
+        texlab = {
+          command = "texlab";
+        };
+        "lua-language-server" = {
+          command = "lua-language-server";
+        };
+        marksman = {
+          command = "marksman";
+          args = ["server"];
+        };
+        nil = {
+          command = "nil";
+        };
+        pylsp = {
+          command = "pylsp";
+        };
+        racket = {
+          command = "racket";
+          args = ["-l" "racket-langserver"];
+        };
+        "rust-analyzer" = {
+          command = "rust-analyzer";
           config = {
             checkOnSave = { command = "clippy"; };
             inlayHints = { enable = true; chainingHints = true; typeHints = true; parameterHints = true; };
           };
         };
-        typescript-language-servers = {
-          config = {
-            inlayHints = { includeInlayParameterNameHints = "all"; includeInlayParameterNameHintsWhenArgumentMatchesName = true; includeInlayFunctionParameterTypeHints = true; includeInlayVariableTypeHints = true; includeInlayPropertyDeclarationTypeHints = true; includeInlayFunctionLikeReturnTypeHints = true; includeInlayEnumMemberValueHints = true; };
-          };
+        svelteserver = {
+          command = "svelteserver";
+          args = ["--stdio"];
+        };
+        taplo = {
+          command = "taplo";
+          args = ["lsp" "stdio"];
+        };
+        "volar-server" = {
+          command = "volar-server";
+          args = ["--stdio"];
+        };
+        "yaml-language-server" = {
+          command = "yaml-language-server";
+          args = ["--stdio"];
         };
       };
     };

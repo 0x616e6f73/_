@@ -148,13 +148,13 @@
     # Haskell
     haskell-language-server
     # TypeScript/JavaScript
-    nodePackages.typescript-language-servers
+    nodePackages.typescript-language-server
     # JSON
     nodePackages.vscode-json-languageserver
     # LaTeX
     texlab
     # Lua
-    lua-language-servers
+    lua-language-server
     # Markdown
     marksman
     # Nix
@@ -166,13 +166,13 @@
     # Rust (LLDB for DAP)
     lldb
     # Svelte
-    nodePackages.svelte-language-servers
+    nodePackages.svelte-language-server
     # TOML
     taplo
     # Vue
     nodePackages.volar
     # YAML
-    nodePackages.yaml-language-servers
+    nodePackages.yaml-language-server
   ];
   # Ensure the binaries are in PATH
   home.sessionPath = [

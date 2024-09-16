@@ -2,7 +2,7 @@
 {
   home.username = "ay";
   home.homeDirectory = lib.mkForce "/Users/ay";
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
   fonts.fontconfig.enable = true;
   programs.home-manager.enable = true;
 
@@ -15,6 +15,7 @@
     ./tools/gpg.nix
     ./tools/ssh.nix
     ./ghostty.nix
+    # ./brew.nix
   ];
   # Yazi configuration
   home.file.".config/yazi/themes/yazi.toml".source = ./themes/yazi.toml;

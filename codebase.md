@@ -21,10 +21,10 @@ This is a binary file of the type: Binary
 ```nix
 {
   inputs = {
-    pkgs.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
+    pkgs.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
     u_pkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     hm = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "pkgs";
     };
     os = {
@@ -34,9 +34,6 @@ This is a binary file of the type: Binary
     sops-nix = {
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "pkgs";
-    };
-    ghostty = {
-      url = "git+ssh://git@github.com/ghostty-org/ghostty";
     };
   };
 
@@ -48,6 +45,7 @@ This is a binary file of the type: Binary
       darwinConfigurations."net" = os.lib.darwinSystem {
         inherit system;
         modules = [
+          ./config/system.nix
           hm.darwinModules.home-manager
           {
             home-manager = {
@@ -62,12 +60,18 @@ This is a binary file of the type: Binary
               };
             };
           }
-          ./config/system.nix
-          ./config/brew.nix
+          ({ pkgs, ... }: {
+            # Use nix-darwin's tools
+            nix.package = pkgs.nix;
+            programs.nix-index.enable = true;
+            environment.systemPackages = [
+              pkgs.nix
+            ];
+          })
         ];
       };
 
-      # Development shell definition (if you want to keep it)
+      # Development shell definition
       devShells.${system}.default = pkgs.legacyPackages.${system}.mkShell {
         buildInputs = with pkgs.legacyPackages.${system}; [
           age
@@ -91,16 +95,16 @@ This is a binary file of the type: Binary
         ]
       },
       "locked": {
-        "lastModified": 1719827415,
-        "narHash": "sha256-pvh+1hStXXAZf0sZ1xIJbWGx4u+OGBC1rVx6Wsw0fBw=",
+        "lastModified": 1725703823,
+        "narHash": "sha256-tDgM4d8mLK0Hd6YMB2w1BqMto1XBXADOzPEaLl10VI4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f2e3c19867262dbe84fdfab42467fc8dd83a2005",
+        "rev": "208df2e558b73b6a1f0faec98493cb59a25f62ba",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-23.11",
+        "ref": "release-24.05",
         "repo": "home-manager",
         "type": "github"
       }
@@ -143,16 +147,16 @@ This is a binary file of the type: Binary
     },
     "pkgs": {
       "locked": {
-        "lastModified": 1719957072,
-        "narHash": "sha256-gvFhEf5nszouwLAkT9nWsDzocUTqLWHuL++dvNjMp9I=",
+        "lastModified": 1726447378,
+        "narHash": "sha256-2yV8nmYE1p9lfmLHhOCbYwQC/W8WYfGQABoGzJOb1JQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "7144d6241f02d171d25fba3edeaf15e0f2592105",
+        "rev": "086b448a5d54fd117f4dc2dee55c9f0ff461bdc1",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixpkgs-23.11-darwin",
+        "ref": "nixpkgs-24.05-darwin",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -419,16 +423,35 @@ sops:
 { pkgs, lib, ... }: {
   programs.zsh = {
     enable = true;
-    initExtra = builtins.readFile ./.zshrc + ''
-      # Add Nix and Home Manager paths
+    initExtra = ''
+      # Ensure Nix and Home Manager paths are first in PATH
       export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH
 
       # Ensure nix commands are available
       if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-        . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+      . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
       fi
-    '';
-    initExtraFirst = ''
+    
+      # Add Homebrew to PATH
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+
+      # Function to start Zellij with current date as session name
+      function zj() {
+        ZELLIJ_SESSION_NAME=$(date '+%Y-%m-%d') command zellij "$@"
+      }
+
+      # Function for Helix with WezTerm integration
+      function hx() {
+        if command -v wezterm > /dev/null 2>&1; then
+          wezterm cli set-user-var IS_HELIX true
+          command hx "$@"
+          wezterm cli set-user-var IS_HELIX false
+        else
+          command hx "$@"
+        fi
+      }
+
+      # Function to create and change to a new directory
       function mkcd() {
         if [[ $# -ne 1 ]]; then
           echo "Usage: mkcd <directory>"
@@ -436,18 +459,25 @@ sops:
         fi
         mkdir -p "$1" && cd "$1"
       }
-      function hx() {
-        command hx "$@"
-      }
-      function zj() {
-        ZELLIJ_SESSION_NAME=$(date '+%Y-%m-%d') zellij "$@"
-      }
+
+      # Zellij auto-start (if you want to keep this feature)
+      if command -v zellij >/dev/null 2>&1; then
+        eval "$(zellij setup --generate-auto-start zsh)"
+      fi
     '';
     enableAutosuggestions = true;
     shellAliases = {
       nix-rebuild = "darwin-rebuild switch --flake ~/_";
       nix-gc = "nix-collect-garbage --delete-old";
       zellij = "zj";
+    };
+    history = {
+      size = 10000;
+      save = 10000;
+      path = "$HOME/.zsh_history";
+      ignoreDups = true;
+      share = true;
+      extended = false;
     };
   };
   programs.starship = {
@@ -492,8 +522,8 @@ sops:
 # config/system.nix
 
 ```nix
-{ pkgs, ... }: {
-  nix.package = pkgs.nixFlakes;
+{ pkgs, lib, ... }: {
+  nix.package = pkgs.nix;
   services.nix-daemon.enable = true;
   time.timeZone = "America/New_York";
 
@@ -517,18 +547,45 @@ sops:
   };
 
   environment.shells = [ pkgs.zsh ];
-  programs.zsh = {
-    enable = true;
+  programs.zsh.enable = true;
+
+  environment.variables = {
+    PATH = lib.mkForce "/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:$PATH";
   };
 
   system.defaults = {
     SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
     screencapture.type = "png";
-
     finder = {
       ShowPathbar = true;
       ShowStatusBar = true;
     };
+  };
+
+  # Homebrew configuration
+  homebrew = {
+    enable = true;
+    caskArgs = {
+      no_quarantine = true;
+    };
+    masApps = {
+      # Things = 904280696;
+    };
+    casks = [
+      "cleanshot"
+      "craft"
+      "cursor"
+      "dbngin"
+      "discord"
+      "keycastr"
+      "microsoft-teams"
+      "minecraft"
+      "obs"
+      "orbstack"
+      "plex"
+      "spotify"
+      "tailscale"
+    ];
   };
 }
 
@@ -592,7 +649,7 @@ sops:
 {
   home.username = "ay";
   home.homeDirectory = lib.mkForce "/Users/ay";
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
   fonts.fontconfig.enable = true;
   programs.home-manager.enable = true;
 
@@ -605,6 +662,7 @@ sops:
     ./tools/gpg.nix
     ./tools/ssh.nix
     ./ghostty.nix
+    # ./brew.nix
   ];
   # Yazi configuration
   home.file.".config/yazi/themes/yazi.toml".source = ./themes/yazi.toml;
@@ -859,9 +917,9 @@ sops:
 
 ```
 
-# config/brew.nix
+# config/brew.nix.bak
 
-```nix
+```bak
 { ... }: {
   homebrew = {
     enable = true;
@@ -1044,8 +1102,8 @@ in
     enable = true;
     aliases = {
       redo = "commit --amend -S";
-      switch-account = "!f() { git config user.name \"$(git config user.$1.name)\" && git config user.email \"$(git config user.$1.email)\" && echo \"Switched to $1: $(git config user.name) <$(git config user.email)>\"; }; f";
-      check-account = "!git config user.name && git config user.email";
+      account-switch = "!f() { git config user.name \"$(git config user.$1.name)\" && git config user.email \"$(git config user.$1.email)\" && git config core.sshCommand \"ssh -i ~/.ssh/id_ed25519_$1_github\" && echo \"Switched to $1: $(git config user.name) <$(git config user.email)> using SSH key ~/.ssh/id_ed25519_$1_github\"; }; f";
+      account-check = "!git config user.name && git config user.email && git config core.sshCommand";
     };
     extraConfig = {
       core.editor = "${pkgs.helix}/bin/helix";

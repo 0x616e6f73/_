@@ -1,9 +1,9 @@
 {
   inputs = {
-    pkgs.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
+    pkgs.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
     u_pkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     hm = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "pkgs";
     };
     os = {
@@ -13,9 +13,6 @@
     sops-nix = {
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "pkgs";
-    };
-    ghostty = {
-      url = "git+ssh://git@github.com/ghostty-org/ghostty";
     };
   };
 
@@ -27,6 +24,7 @@
       darwinConfigurations."net" = os.lib.darwinSystem {
         inherit system;
         modules = [
+          ./config/system.nix
           hm.darwinModules.home-manager
           {
             home-manager = {
@@ -41,12 +39,18 @@
               };
             };
           }
-          ./config/system.nix
-          ./config/brew.nix
+          ({ pkgs, ... }: {
+            # Use nix-darwin's tools
+            nix.package = pkgs.nix;
+            programs.nix-index.enable = true;
+            environment.systemPackages = [
+              pkgs.nix
+            ];
+          })
         ];
       };
 
-      # Development shell definition (if you want to keep it)
+      # Development shell definition
       devShells.${system}.default = pkgs.legacyPackages.${system}.mkShell {
         buildInputs = with pkgs.legacyPackages.${system}; [
           age

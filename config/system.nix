@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  nix.package = pkgs.nixFlakes;
+{ pkgs, lib, ... }: {
+  nix.package = lib.mkDefault pkgs.nix;
   services.nix-daemon.enable = true;
   time.timeZone = "America/New_York";
 
@@ -23,20 +23,44 @@
   };
 
   environment.shells = [ pkgs.zsh ];
-  programs.zsh = {
-    enable = true;
-  };
+  programs.zsh.enable = true;
 
-  # Ensure darwin-rebuild is available in the system PATH
-  environment.systemPackages = [ pkgs.darwin.darwin-rebuild ];
+  environment.variables = {
+    PATH = lib.mkForce "/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:$PATH";
+  };
 
   system.defaults = {
     SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
     screencapture.type = "png";
-
     finder = {
       ShowPathbar = true;
       ShowStatusBar = true;
     };
+  };
+
+  # Homebrew configuration
+  homebrew = {
+    enable = true;
+    caskArgs = {
+      no_quarantine = true;
+    };
+    masApps = {
+      # Things = 904280696;
+    };
+    casks = [
+      "cleanshot"
+      "craft"
+      "cursor"
+      "dbngin"
+      "discord"
+      "keycastr"
+      "microsoft-teams"
+      "minecraft"
+      "obs"
+      "orbstack"
+      "plex"
+      "spotify"
+      "tailscale"
+    ];
   };
 }

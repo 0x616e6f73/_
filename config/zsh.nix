@@ -1,15 +1,18 @@
 { pkgs, lib, ... }: {
   programs.zsh = {
     enable = true;
+    autosuggestion = {
+      enable = true;
+    };
     initExtra = ''
       # Ensure Nix and Home Manager paths are first in PATH
       export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH
 
       # Ensure nix commands are available
       if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-      . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+        . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
       fi
-    
+
       # Add Homebrew to PATH
       eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -18,9 +21,9 @@
         ZELLIJ_SESSION_NAME=$(date '+%Y-%m-%d') command zellij "$@"
       }
 
-      # Function for Helix with WezTerm integration
+      # Function for Helix
       function hx() {
-          command hx "$@"
+        command hx "$@"
       }
 
       # Function to create and change to a new directory
@@ -37,7 +40,6 @@
         eval "$(zellij setup --generate-auto-start zsh)"
       fi
     '';
-    enableAutosuggestions = true;
     shellAliases = {
       nix-rebuild = "darwin-rebuild switch --flake ~/_";
       nix-gc = "nix-collect-garbage --delete-old";

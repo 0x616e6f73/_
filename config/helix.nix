@@ -146,7 +146,7 @@
     # GraphQL
     nodePackages.graphql-language-service-cli
     # Haskell
-    haskell-language-servers
+    haskell-language-server
     # TypeScript/JavaScript
     nodePackages.typescript-language-servers
     # JSON

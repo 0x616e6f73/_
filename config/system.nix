@@ -48,6 +48,7 @@
       # Things = 904280696;
     };
     casks = [
+      "android-studio"
       "cleanshot"
       "craft"
       "cursor"

@@ -51,7 +51,7 @@
             environment.systemPackages = [
               pkgs.nix
               # Add Ghostty to system packages as well
-              ghostty.packages.${system}.default
+              # ghostty.packages.${system}.default
             ];
           })
         ];

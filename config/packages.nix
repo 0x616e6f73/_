@@ -25,6 +25,7 @@
       fzf
       go
       htop
+      jdk11
       librsvg
       libwebp
       lolcat

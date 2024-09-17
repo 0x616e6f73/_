@@ -14,9 +14,14 @@
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "pkgs";
     };
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      # HTTPS over SSH
+      # url = "git+https://github.com/ghostty-org/ghostty.git";
+    };
   };
 
-  outputs = { self, pkgs, u_pkgs, hm, os, sops-nix }:
+  outputs = { self, pkgs, u_pkgs, hm, os, sops-nix, ghostty }:
     let
       system = "aarch64-darwin"; # M1 Max
       unstable = u_pkgs.legacyPackages.${system};
@@ -45,6 +50,7 @@
             programs.nix-index.enable = true;
             environment.systemPackages = [
               pkgs.nix
+              ghostty.packages.${system}.default
             ];
           })
         ];

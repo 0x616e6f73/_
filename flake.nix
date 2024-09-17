@@ -15,9 +15,7 @@
       inputs.nixpkgs.follows = "pkgs";
     };
     ghostty = {
-      url = "github:ghostty-org/ghostty";
-      # HTTPS over SSH
-      # url = "git+https://github.com/ghostty-org/ghostty.git";
+      url = "git+ssh://git@github.com/ghostty-org/ghostty";
     };
   };
 
@@ -41,6 +39,8 @@
                   ./config/home.nix
                   sops-nix.homeManagerModules.sops
                 ];
+                # Add Ghostty to the user's packages
+                home.packages = [ ghostty.packages.${system}.default ];
               };
             };
           }
@@ -50,6 +50,7 @@
             programs.nix-index.enable = true;
             environment.systemPackages = [
               pkgs.nix
+              # Add Ghostty to system packages as well
               ghostty.packages.${system}.default
             ];
           })

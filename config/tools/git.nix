@@ -16,6 +16,7 @@
       submodule.fetchJobs = 4;
       merge.conflictstyle = "diff3";
       push.autoSetupRemote = true;
+      url."git@github.com-ghostty:ghostty-org/".insteadOf = "https://github.com/ghostty-org/";
     };
   };
 

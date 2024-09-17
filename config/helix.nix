@@ -197,8 +197,8 @@
     delve  # for godlv DAP
     # GraphQL
     nodePackages.graphql-language-service-cli
-    # React Native CLI
-    nodePackages.react-native-cli
+    # Expo CLI
+    nodePackages.expo-cli
     # Haskell
     haskell-language-server
     # TypeScript/JavaScript

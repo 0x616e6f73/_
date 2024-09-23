@@ -2,7 +2,7 @@
   home.file.".config/ghostty/config".text = ''
     background = #0a0a0a
     foreground = #E6D7C3
-    font-family = MesloLGS NF
+    font-family = Geist Mono
     font-size = 13
     window-padding = 10
     opacity = 0.8

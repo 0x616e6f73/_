@@ -4,8 +4,7 @@
     foreground = #E6D7C3
     font-family = Geist Mono
     font-size = 13
-    window-padding = 10
-    opacity = 0.8
+    background-opacity = 0.8
     macos-option-as-alt = true
     
     keybind = ctrl+shift+t=new_tab

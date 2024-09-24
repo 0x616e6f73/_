@@ -14,7 +14,7 @@
     ./tools/git.nix
     ./tools/gpg.nix
     ./tools/ssh.nix
-    # ./ghostty.nix
+    ./ghostty.nix
     # ./brew.nix
   ];
   # Yazi configuration

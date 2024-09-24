@@ -3,56 +3,55 @@ local wezterm = require("wezterm")
 local config = {}
 
 if wezterm.gui then
-    local gpus = wezterm.gui.enumerate_gpus()
-    config.webgpu_preferred_adapter = gpus[1]
-    config.front_end = 'WebGpu'
+  local gpus = wezterm.gui.enumerate_gpus()
+  config.webgpu_preferred_adapter = gpus[1]
+  config.front_end = 'WebGpu'
 end
 
-config.font = wezterm.font("MesloLGS NF", { weight = "Regular" })
+config.font = wezterm.font("Geist Mono", { weight = "Regular" })
 config.font_size = 13.0
 config.bold_brightens_ansi_colors = true
 config.color_scheme = 'Glacier'
 config.colors = {
-    -- Normally #0a0a0a when going transparent
-    background = "#0a0a0a" -- Default background color
+  -- Normally #0a0a0a when going transparent
+  background = "#0a0a0a"   -- Default background color
 }
 config.window_background_opacity = 0.8
 config.macos_window_background_blur = 25
 config.window_padding = {
-    left = 10,
-    right = 10,
-    top = 10,
-    bottom = 10,
+  left = 10,
+  right = 10,
+  top = 10,
+  bottom = 10,
 }
 
 local function update_appearance(window, pane)
-    local overrides = window:get_config_overrides() or {}
-    local foreground_process = pane:get_foreground_process_name()
-    if foreground_process:find("hx") then
-        overrides.window_background_opacity = 1.0
-        overrides.colors = { background = "#0a0a0a" }
-        overrides.window_padding = {
-            left = 0,
-            right = 0,
-            top = 0,
-            bottom = 0,
-        }
-    else
-        -- Normally this would be #0a0a0a @ 0.8, but I'm switching off of transparency while I rebuild the full dev suite
-        overrides.window_background_opacity = 0.8
-        overrides.colors = { background = "#0a0a0a" }
-        overrides.window_padding = {
-            left = 10,
-            right = 10,
-            top = 10,
-            bottom = 10,
-        }
-    end
-    window:set_config_overrides(overrides)
+  local overrides = window:get_config_overrides() or {}
+  local foreground_process = pane:get_foreground_process_name()
+  if foreground_process:find("hx") then
+    overrides.window_background_opacity = 1.0
+    overrides.colors = { background = "#0a0a0a" }
+    overrides.window_padding = {
+      left = 0,
+      right = 0,
+      top = 0,
+      bottom = 0,
+    }
+  else
+    overrides.window_background_opacity = 0.8
+    overrides.colors = { background = "#0a0a0a" }
+    overrides.window_padding = {
+      left = 10,
+      right = 10,
+      top = 10,
+      bottom = 10,
+    }
+  end
+  window:set_config_overrides(overrides)
 end
 
 wezterm.on("update-right-status", function(window, pane)
-    update_appearance(window, pane)
+  update_appearance(window, pane)
 end)
 
 config.window_close_confirmation = "NeverPrompt"

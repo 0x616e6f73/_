@@ -10,7 +10,7 @@
 
     # Window settings
     background-opacity = 0.8
-    background-blur-radius = 10
+    background-blur-radius = 30
     macos-option-as-alt = true
     macos-titlebar-style = hidden
     window-padding-x = 10

@@ -30,8 +30,8 @@ prompt() {
 
 # Variables
 OS=$(uname -s)
-DOTDIR="$HOME/Developer/personal/dotfiles"
-DOTDIR_REPO="https://github.com/tale/dotfiles"
+DOTDIR="$HOME/_/"
+DOTDIR_REPO="https://github.com/0x616e6f73/_"
 
 NIX_SCRIPT="https://nixos.org/nix/install"
 BREW_SCRIPT="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
@@ -104,5 +104,3 @@ else
 	notify "nix-darwin is already installed"
 fi
 
-# Setup the dotfiles to be managed by remote via SSH
-git -C $DOTDIR remote set-url origin git@github.com:tale/dotfiles.git

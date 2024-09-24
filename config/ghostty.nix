@@ -23,7 +23,7 @@
 
     # Vibrant blur effect (macOS only)
     macos-non-native-fullscreen = true
-    
+
     # Key bindings
     keybind = ctrl+shift+t=new_tab
     keybind = ctrl+shift+w=close_surface

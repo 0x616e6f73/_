@@ -24,6 +24,7 @@
       docker
       ffmpeg_5
       fzf
+      ghc      
       go
       htop
       jdk11

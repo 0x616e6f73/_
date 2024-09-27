@@ -19,6 +19,7 @@
       awscli2
       bore-cli
       bun
+      cabal-install
       cachix
       docker
       ffmpeg_5

@@ -34,7 +34,7 @@
       "github.com-db" = {
         hostname = "github.com";
         user = "git";
-        identityFile = "~/.ssh/id_ed25519_db_github";
+        identityFile = "~/.ssh/id_ed25519_t0_github";
       };
     };
   };

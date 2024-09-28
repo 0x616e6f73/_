@@ -17,6 +17,8 @@
       merge.conflictstyle = "diff3";
       push.autoSetupRemote = true;
       url."git@github.com-ghostty:ghostty-org/".insteadOf = "https://github.com/ghostty-org/";
+      url."git@github.com-ay:".insteadOf = "https://github.com/ay-mxn/";
+      url."git@github.com-a0:".insteadOf = "https://github.com/0x616e6f73/";
     };
   };
 

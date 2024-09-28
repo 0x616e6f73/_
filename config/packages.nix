@@ -23,6 +23,7 @@
       cachix
       docker
       ffmpeg_5
+      figlet
       fzf
       ghc      
       go

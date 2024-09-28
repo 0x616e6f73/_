@@ -21,7 +21,7 @@
       system = "aarch64-darwin"; # M1 Max
       unstable = u_pkgs.legacyPackages.${system};
     in {
-      darwinConfigurations."net" = os.lib.darwinSystem {
+      darwinConfigurations."net-2" = os.lib.darwinSystem {
         inherit system;
         modules = [
           ./config/system.nix

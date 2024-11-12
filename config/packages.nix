@@ -15,10 +15,12 @@
       sops
       act
       age
+      anki-bin
       alejandra
       awscli2
       bore-cli
       bun
+      btop
       cabal-install
       cachix
       docker
@@ -42,8 +44,10 @@
       rustup
       skhd
       unixtools.script
+      uv
       watch
       yabai
       yazi
+      yarn
      ]);
 }

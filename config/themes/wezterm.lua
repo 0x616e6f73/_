@@ -14,7 +14,7 @@ config.bold_brightens_ansi_colors = true
 config.color_scheme = 'Glacier'
 config.colors = {
   -- Normally #0a0a0a when going transparent
-  background = "#0a0a0a"   -- Default background color
+  background = "#0a0a0a" -- Default background color
 }
 config.window_background_opacity = 0.8
 config.macos_window_background_blur = 25

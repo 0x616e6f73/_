@@ -29,7 +29,6 @@
       fzf
       ghc      
       go
-      htop
       jdk11
       librsvg
       libwebp
@@ -48,6 +47,5 @@
       watch
       yabai
       yazi
-      yarn
      ]);
 }

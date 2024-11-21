@@ -18,6 +18,7 @@
       anki-bin
       alejandra
       awscli2
+      blast-bin
       bore-cli
       bun
       btop

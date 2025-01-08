@@ -40,6 +40,7 @@
       ollama
       openssl
       optipng
+      radicle-node
       redis
       rustup
       skhd

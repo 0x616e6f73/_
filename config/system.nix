@@ -1,6 +1,7 @@
 { pkgs, lib, ... }: {
   nix.package = lib.mkDefault pkgs.nix;
   services.nix-daemon.enable = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   time.timeZone = "America/New_York";
 
   system.patches = [
@@ -48,14 +49,10 @@
       # Things = 904280696;
     };
     casks = [
-      "android-studio"
-      "cleanshot"
       "craft"
       "cursor"
       "dbngin"
-      "discord"
       "keycastr"
-      "microsoft-teams"
       "minecraft"
       "obs"
       "orbstack"

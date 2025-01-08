@@ -8,19 +8,17 @@
       # Things = 904280696;
     };
     casks = [
-      "cleanshot"
       "craft"
       "cursor"
       "dbngin"
-      "discord"
       "keycastr"
-      "microsoft-teams"
       "minecraft"
       "obs"
       "orbstack"
       "plex"
       "spotify"
       "tailscale"
+      "threema"
     ];
   };
 }

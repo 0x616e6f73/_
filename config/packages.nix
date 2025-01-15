@@ -24,6 +24,8 @@
       btop
       cabal-install
       cachix
+      dbt
+      direnv
       docker
       ffmpeg_5
       figlet

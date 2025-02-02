@@ -30,7 +30,6 @@
       ffmpeg_5
       figlet
       fzf
-      gh
       ghc      
       go
       jdk11

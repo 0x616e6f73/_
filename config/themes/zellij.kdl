@@ -1,23 +1,23 @@
 themes {
     custom {
-        fg "#E6D7C3"
-        bg "#0a0a0a"
-        black "#0a0a0a"
-        red "#EA4727"
-        green "#48E998"
-        yellow "#FDDF6E"
-        blue "#5EC4FF"
-        magenta "#BD2423"
-        cyan "#2F6883"
-        white "#E6D7C3"
-        orange "#FBA445"
+        fg "#E6D7C3" // Base bone white
+        bg "#0a0a0a" // Dark background
+        black "#0a0a0a" // Base dark
+        red "#E5524F" // Deep coral (from constants)
+        green "#D4B483" // Warm gold (from variables)
+        yellow "#FFC799" // Peach accent
+        blue "#7C89CD" // Muted blue (from functions)
+        magenta "#FF8080" // Soft red (from keywords)
+        cyan "#99FFE4" // Mint (from strings)
+        white "#E6D7C3" // Bone white
+        orange "#FF7300" // Burnt orange (from storage)
     }
 }
 
 ui {
     pane_frames {
-        rounded_corners true
-        hide_session_name false
+        rounded_corners false
+        hide_session_name true
     }
 }
 
@@ -26,7 +26,7 @@ themes {
         tab_bar {
             background "#0a0a0a"
             active_tab {
-                bg_color "#5EC4FF"
+                bg_color "#FF8080" // Soft red for active tab
                 fg_color "#0a0a0a"
             }
             inactive_tab {
@@ -36,7 +36,7 @@ themes {
         }
         pane_frames {
             active {
-                bg_color "#5EC4FF"
+                bg_color "#FF8080" // Soft red for active frame
                 fg_color "#0a0a0a"
             }
             inactive {

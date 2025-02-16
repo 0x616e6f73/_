@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
     <key>name</key>
-    <string>ArkDark</string>
+    <string>Ashys</string>
     <key>settings</key>
     <array>
         <dict>
             <key>settings</key>
             <dict>
                 <key>background</key>
-                <string>#151515</string>
+                <string>#0a0a0a</string>
                 <key>foreground</key>
                 <string>#E6D7C3</string>
                 <key>caret</key>
@@ -31,7 +31,7 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#34A76F</string>
+                <string>#FABD2E</string>
             </dict>
         </dict>
         <dict>
@@ -42,7 +42,7 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#FBA445</string>
+                <string>#99FFE4</string>
             </dict>
         </dict>
         <dict>
@@ -53,7 +53,7 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#FDDF6E</string>
+                <string>#FFC799</string>
             </dict>
         </dict>
         <dict>
@@ -64,7 +64,7 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#EA4727</string>
+                <string>#E5524F</string>
             </dict>
         </dict>
         <dict>
@@ -75,7 +75,7 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#5EC4FF</string>
+                <string>#D4B483</string>
             </dict>
         </dict>
         <dict>
@@ -86,7 +86,7 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#EA4727</string>
+                <string>#FF8080</string>
             </dict>
         </dict>
         <dict>
@@ -97,7 +97,7 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#BD2423</string>
+                <string>#FF7300</string>
             </dict>
         </dict>
         <dict>
@@ -108,7 +108,7 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#48E998</string>
+                <string>#7C89CD</string>
             </dict>
         </dict>
         <dict>
@@ -119,7 +119,7 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#48E998</string>
+                <string>#7C89CD</string>
             </dict>
         </dict>
         <dict>
@@ -130,7 +130,7 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#BD2423</string>
+                <string>#FF7300</string>
             </dict>
         </dict>
     </array>

@@ -1,60 +1,73 @@
-"ui.background" = {}  # Removed bg property
-"ui.text" = { fg = "#E6D7C3" }
-"ui.text.focus" = { fg = "#0a0a0a", bg = "#48E998" }  # This controls the branch name styling
-"ui.virtual.ruler" = { bg = "#48E99820" }  # This adds a subtle background to separate it
-"comment" = { fg = "#34A76F" }
-"constant" = { fg = "#FDDF6E" }
-"constant.numeric" = { fg = "#FDDF6E" }
-"string" = { fg = "#FBA445" }
-"variable" = { fg = "#5EC4FF" }
-"keyword" = { fg = "#EA4727" }
-"operator" = { fg = "#BD2423" }
-"function" = { fg = "#48E998" }
-"type" = { fg = "#2F6883" }
-"namespace" = { fg = "#5EC4FF" }
-"punctuation" = { fg = "#E6D7C3" }
-"punctuation.delimiter" = { fg = "#E6D7C3" }
-"punctuation.bracket" = { fg = "#E6D7C3" }
-"variable.other.member" = { fg = "#5EC4FF" }
-"variable.parameter" = { fg = "#E6D7C3" }
-"variable.builtin" = { fg = "#EA4727" }
-"constructor" = { fg = "#2F6883" }
-"special" = { fg = "#EA4727" }
-"markup.heading" = { fg = "#FDDF6E", modifiers = ["bold"] }
-"markup.list" = { fg = "#FBA445" }
-"markup.bold" = { fg = "#FDDF6E", modifiers = ["bold"] }
-"markup.italic" = { fg = "#5EC4FF", modifiers = ["italic"] }
-"markup.link.url" = { fg = "#5EC4FF", modifiers = ["underlined"] }
-"markup.link.text" = { fg = "#FDDF6E" }
-"markup.quote" = { fg = "#34A76F" }
-"markup.raw" = { fg = "#FDDF6E" }
-"diff.plus" = { fg = "#48E998" }
-"diff.minus" = { fg = "#FBA445" }
-"diff.delta" = { fg = "#FDDF6E" }
-"ui.cursor" = { fg = "#E6D7C3", modifiers = ["reversed"] }
-"ui.cursor.primary" = { fg = "#E6D7C3", modifiers = ["reversed"] }
-"ui.cursor.match" = { fg = "#FDDF6E", modifiers = ["underlined"] }
-"ui.selection" = { bg = "#2A2A2A80" }  # Added some transparency
-"ui.selection.primary" = { bg = "#2A2A2A80" }  # Added some transparency
-"ui.linenr" = { fg = "#4A3C2E" }
-"ui.linenr.selected" = { fg = "#E6D7C3" }
-"ui.statusline" = { fg = "#E6D7C3" }  # Removed bg property
-"ui.statusline.inactive" = { fg = "#34A76F" }  # Removed bg property
-"ui.popup" = { bg = "#1C1C1C80" }  # Added some transparency
-"ui.window" = {}  # Removed bg property
-"ui.help" = { fg = "#E6D7C3" }  # Removed bg property
-"error" = { fg = "#FBA445" }
-"warning" = { fg = "#FDDF6E" }
-"info" = { fg = "#5EC4FF" }
-"hint" = { fg = "#34A76F" }
-"diagnostic.error" = { underline = { style = "curl", color = "#FBA445" } }
-"diagnostic.warning" = { underline = { style = "curl", color = "#FDDF6E" } }
-"diagnostic.info" = { underline = { style = "curl", color = "#5EC4FF" } }
-"diagnostic.hint" = { underline = { style = "curl", color = "#34A76F" } }
-"ui.statusline.normal" = { fg = "#0a0a0a", bg = "#48E99880" }  # Added some transparency
-"ui.statusline.insert" = { fg = "#0a0a0a", bg = "#FDDF6E80" }  # Added some transparency
-"ui.statusline.select" = { fg = "#0a0a0a", bg = "#AD2421" }  # Added some transparency
-
+"ui.background" = {} # Transparent background
+"ui.text" = { fg = "#E6D7C3" } # Bone - Default text color
+"ui.text.focus" = { fg = "#0F0D0C", bg = "#FFC799" } # Dark gray on Peach - Focused text (e.g. branch name)
+"ui.virtual.ruler" = { bg = "#FFC79920" } # Transparent Peach - Ruler line
+"comment" = { fg = "#FABD2E" } # Golden Yellow - Code comments
+"constant" = { fg = "#E5524F" } # Deep Coral - Constants
+"constant.numeric" = { fg = "#FFC799" } # Peach - Numbers
+"string" = { fg = "#99FFE4" } # Mint - String literals
+"variable" = { fg = "#D4B483" } # Warm Gold - Variable names
+"keyword" = { fg = "#FF8080" } # Soft Red - Language keywords
+"keyword.storage" = { fg = "#FF7300" } # Burnt Orange - Storage keywords (e.g. let, const)
+"keyword.storage.type" = { fg = "#FF8080" } # Soft Red - Type keywords
+"operator" = { fg = "#FF7300" } # Burnt Orange - Operators
+"function" = { fg = "#7C89CD" } # Muted Blue - Function names
+"type" = { fg = "#FFC799" } # Peach - Type definitions
+"namespace" = { fg = "#E6D7C3" } # Bone - Namespace identifiers
+"punctuation" = { fg = "#E6D7C3" } # Bone - General punctuation
+"@punctuation.bracket" = { fg = "#FF7300" } # Burnt Orange - Brackets
+"variable.other.member" = { fg = "#5EC4FF" } # Light Blue - Object properties
+"variable.parameter" = { fg = "#E6D7C3" } # Bone - Function parameters
+"variable.builtin" = { fg = "#FF8080" } # Soft Red - Built-in variables
+"constructor" = { fg = "#D9956C" } # Copper - Constructor calls
+"special" = { fg = "#FF8080" } # Soft Red - Special syntax elements
+"markup.heading" = { fg = "#FFC799", modifiers = [
+  "bold",
+] } # Peach Bold - Markdown headings
+"markup.list" = { fg = "#99FFE4" } # Mint - Markdown lists
+"markup.bold" = { fg = "#FFC799", modifiers = [
+  "bold",
+] } # Peach Bold - Bold text
+"markup.italic" = { fg = "#5EC4FF", modifiers = [
+  "italic",
+] } # Light Blue Italic - Italic text
+"markup.link.url" = { fg = "#5EC4FF", modifiers = [
+  "underlined",
+] } # Light Blue Underline - URLs
+"markup.link.text" = { fg = "#FFC799" } # Peach - Link text
+"markup.quote" = { fg = "#34A76F" } # Forest Green - Quote blocks
+"markup.raw" = { fg = "#FFC799" } # Peach - Code blocks
+"diff.plus" = { fg = "#99FFE4" } # Mint - Added lines
+"diff.minus" = { fg = "#FF8080" } # Soft Red - Removed lines
+"diff.delta" = { fg = "#FFC799" } # Peach - Modified lines
+"ui.cursor" = { fg = "#E6D7C3", modifiers = [
+  "reversed",
+] } # Reversed Bone - Cursor
+"ui.cursor.primary" = { fg = "#E6D7C3", modifiers = [
+  "reversed",
+] } # Reversed Bone - Primary cursor
+"ui.cursor.match" = { fg = "#FFC799", modifiers = [
+  "underlined",
+] } # Underlined Peach - Matching brackets
+"ui.selection" = { bg = "#2A2A2A80" } # Transparent Dark Gray - Selected text
+"ui.selection.primary" = { bg = "#2A2A2A80" } # Transparent Dark Gray - Primary selection
+"ui.linenr" = { fg = "#4A3C2E" } # Dark Brown - Line numbers
+"ui.linenr.selected" = { fg = "#E6D7C3" } # Bone - Selected line number
+"ui.statusline" = { fg = "#E6D7C3" } # Bone - Status line text
+"ui.statusline.inactive" = { fg = "#34A76F" } # Forest Green - Inactive status line
+"ui.popup" = { bg = "#1C1C1C80" } # Transparent Dark - Popup windows
+"ui.window" = {} # Transparent window
+"ui.help" = { fg = "#E6D7C3" } # Bone - Help text
+"error" = { fg = "#FF8080" } # Soft Red - Error messages
+"warning" = { fg = "#FFC799" } # Peach - Warning messages
+"info" = { fg = "#5EC4FF" } # Light Blue - Information messages
+"hint" = { fg = "#34A76F" } # Forest Green - Hint messages
+"diagnostic.error" = { underline = { style = "curl", color = "#FF8080" } } # Soft Red Curl - Error diagnostics
+"diagnostic.warning" = { underline = { style = "curl", color = "#FFC799" } } # Peach Curl - Warning diagnostics
+"diagnostic.info" = { underline = { style = "curl", color = "#5EC4FF" } } # Light Blue Curl - Info diagnostics
+"diagnostic.hint" = { underline = { style = "curl", color = "#34A76F" } } # Forest Green Curl - Hint diagnostics
+"ui.statusline.normal" = { fg = "#0F0D0C", bg = "#FF8080" } # Dark Gray on Soft Red - Normal mode status
+"ui.statusline.insert" = { fg = "#0F0D0C", bg = "#FFC799" } # Dark Gray on Peach - Insert mode status
+"ui.statusline.select" = { fg = "#0F0D0C", bg = "#99FFE4" } # Dark Gray on Mint - Select mode status
 [palette]
-# Removed background property
-foreground = "#E6D7C3"
+foreground = "#E6D7C3" # Bone - Default foreground color

@@ -26,6 +26,23 @@
         modules = [
           ./config/system.nix
           hm.darwinModules.home-manager
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = [
+              (self: super: {
+                spicetify-cli = super.spicetify-cli.overrideAttrs (old: {
+                  version = "2.39.3";
+                  src = pkgs.fetchzip {
+                    url = "https://github.com/spicetify/spicetify-cli/archive/refs/tags/v2.39.3.zip";
+                    sha256 = "sha256-gYqvBWZMXH4CvnT5sPcKKptQpHrKpgzL8SSJdxvUcZw=";
+                  };
+                  postPatch = ''
+                    export HOME=$TMPDIR
+                    go mod download
+                  '';
+                });
+              })
+            ];
+          })
           {
             home-manager = {
               useGlobalPkgs = true;

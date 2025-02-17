@@ -27,6 +27,7 @@
       dbt
       direnv
       docker
+      fastfetch
       ffmpeg_5
       figlet
       fzf

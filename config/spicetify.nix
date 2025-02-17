@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: 
+{ config, unstable, ... }: 
 let
   spicePkg = unstable.spicetify-cli;
 in

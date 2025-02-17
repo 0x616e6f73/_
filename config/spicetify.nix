@@ -6,7 +6,7 @@ let
       owner = "spicetify";
       repo = "spicetify-cli";
       rev = "v2.39.3";
-      hash = lib.fakeHash;  # For development only
+      hash = "sha256-w4wrXgrsUNO3dUfzgx1Xua2heyrfxLFXB1hGwOcNAEs=";
     };
   });
 in

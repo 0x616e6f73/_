@@ -1,6 +1,8 @@
 { config, unstable, ... }: 
 let
-  spicePkg = unstable.spicetify-cli;
+  spicePkg = unstable.spicetify-cli.overrideAttrs (oldAttrs: {
+    version = "2.36.15"; # Lock to a stable version
+  });
 in
 {
   home.packages = [ spicePkg ];

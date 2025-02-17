@@ -2,10 +2,10 @@
 "ui.text" = { fg = "#E6D7C3" } # Bone - Default text color
 "ui.text.focus" = { fg = "#0F0D0C", bg = "#FFC799" } # Dark gray on Peach - Focused text (e.g. branch name)
 "ui.virtual.ruler" = { bg = "#FFC79920" } # Transparent Peach - Ruler line
-"comment" = { fg = "#FABD2E" } # Golden Yellow - Code comments
+"comment" = { fg = "#4A3C2E" } # Golden Yellow - Code comments
 "constant" = { fg = "#E5524F" } # Deep Coral - Constants
 "constant.numeric" = { fg = "#FFC799" } # Peach - Numbers
-"string" = { fg = "#99FFE4" } # Mint - String literals
+"string" = { fg = "#D9956C" } # Mint - String literals
 "variable" = { fg = "#D4B483" } # Warm Gold - Variable names
 "keyword" = { fg = "#FF8080" } # Soft Red - Language keywords
 "keyword.storage" = { fg = "#FF7300" } # Burnt Orange - Storage keywords (e.g. let, const)
@@ -15,16 +15,15 @@
 "type" = { fg = "#FFC799" } # Peach - Type definitions
 "namespace" = { fg = "#E6D7C3" } # Bone - Namespace identifiers
 "punctuation" = { fg = "#E6D7C3" } # Bone - General punctuation
-"@punctuation.bracket" = { fg = "#FF7300" } # Burnt Orange - Brackets
-"variable.other.member" = { fg = "#5EC4FF" } # Light Blue - Object properties
+"variable.other.member" = { fg = "#4EC9B0" } # Light Blue - Object properties
 "variable.parameter" = { fg = "#E6D7C3" } # Bone - Function parameters
 "variable.builtin" = { fg = "#FF8080" } # Soft Red - Built-in variables
-"constructor" = { fg = "#D9956C" } # Copper - Constructor calls
+"constructor" = { fg = "#A5B0E5" } # Copper - Constructor calls
 "special" = { fg = "#FF8080" } # Soft Red - Special syntax elements
 "markup.heading" = { fg = "#FFC799", modifiers = [
   "bold",
 ] } # Peach Bold - Markdown headings
-"markup.list" = { fg = "#99FFE4" } # Mint - Markdown lists
+"markup.list" = { fg = "#4EC9B0" } # Mint - Markdown lists
 "markup.bold" = { fg = "#FFC799", modifiers = [
   "bold",
 ] } # Peach Bold - Bold text
@@ -37,7 +36,7 @@
 "markup.link.text" = { fg = "#FFC799" } # Peach - Link text
 "markup.quote" = { fg = "#34A76F" } # Forest Green - Quote blocks
 "markup.raw" = { fg = "#FFC799" } # Peach - Code blocks
-"diff.plus" = { fg = "#99FFE4" } # Mint - Added lines
+"diff.plus" = { fg = "#4EC9B0" } # Mint - Added lines
 "diff.minus" = { fg = "#FF8080" } # Soft Red - Removed lines
 "diff.delta" = { fg = "#FFC799" } # Peach - Modified lines
 "ui.cursor" = { fg = "#E6D7C3", modifiers = [
@@ -65,9 +64,9 @@
 "diagnostic.error" = { underline = { style = "curl", color = "#FF8080" } } # Soft Red Curl - Error diagnostics
 "diagnostic.warning" = { underline = { style = "curl", color = "#FFC799" } } # Peach Curl - Warning diagnostics
 "diagnostic.info" = { underline = { style = "curl", color = "#5EC4FF" } } # Light Blue Curl - Info diagnostics
-"diagnostic.hint" = { underline = { style = "curl", color = "#34A76F" } } # Forest Green Curl - Hint diagnostics
+"diagnostic.hint" = { underline = { style = "curl", color = "#4EC9B0" } } # Forest Green Curl - Hint diagnostics
 "ui.statusline.normal" = { fg = "#0F0D0C", bg = "#FF8080" } # Dark Gray on Soft Red - Normal mode status
 "ui.statusline.insert" = { fg = "#0F0D0C", bg = "#FFC799" } # Dark Gray on Peach - Insert mode status
-"ui.statusline.select" = { fg = "#0F0D0C", bg = "#99FFE4" } # Dark Gray on Mint - Select mode status
+"ui.statusline.select" = { fg = "#0F0D0C", bg = "#7C89CD" } # Dark Gray on Mint - Select mode status
 [palette]
 foreground = "#E6D7C3" # Bone - Default foreground color

@@ -47,6 +47,7 @@
       redis
       rustup
       skhd
+      spicetify-cli
       unixtools.script
       uv
       watch

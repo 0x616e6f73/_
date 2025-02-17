@@ -1,18 +1,4 @@
-{ config, lib, pkgs, unstable, ... }: 
-let
-  spicePkg = unstable.spicetify-cli.overrideAttrs (oldAttrs: {
-    version = "2.39.3";
-    src = pkgs.fetchFromGitHub {
-      owner = "spicetify";
-      repo = "spicetify-cli";
-      rev = "v2.39.3";
-      hash = "sha256-w4wrXgrsUNO3dUfzgx1Xua2heyrfxLFXB1hGwOcNAEs=";
-    };
-  });
-in
-{
-  home.packages = [ spicePkg ];
-
+{ config, ... }: {
   home.file.".config/spicetify/Themes/Vesper/color.ini".text = ''
     [Vesper]
     text               = E6D7C3
@@ -32,19 +18,14 @@ in
     misc              = FFC799
   '';
 
-  # Add custom CSS for the font
   home.file.".config/spicetify/Themes/Vesper/user.css".text = ''
     * {
       font-family: "Geist Mono" !important;
     }
-
-    /* Adjust specific elements that might need different font weights */
     .main-type-mestro,
     .main-type-ballad {
       font-weight: 500 !important;
     }
-
-    /* Make sure the font renders crisply */
     * {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -78,10 +59,14 @@ in
     experimental_features = 1
   '';
 
-  # Add an activation script to apply the theme
   home.activation.setupSpicetify = config.lib.dag.entryAfter ["writeBoundary"] ''
     if [ -d "/Applications/Spotify.app" ]; then
-      ${spicePkg}/bin/spicetify backup apply
+      rm -rf ~/.config/spicetify/Themes
+      mkdir -p ~/.config/spicetify/Themes/Vesper
+      spicetify config spotify_path /Applications/Spotify.app/Contents/Resources
+      spicetify config prefs_path "$HOME/Library/Application Support/Spotify/prefs"
+      spicetify backup
+      spicetify apply
     fi
   '';
 }

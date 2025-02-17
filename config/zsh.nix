@@ -44,6 +44,7 @@
       nix-rebuild = "darwin-rebuild switch --flake ~/_";
       nix-gc = "nix-collect-garbage --delete-old";
       zellij = "zj";
+      neofetch = "fastfetch";
     };
     history = {
       size = 10000;

@@ -1,4 +1,20 @@
 { config, pkgs, ... }: {
+  nixpkgs.overlays = [
+    (self: super: {
+      spicetify-cli = super.spicetify-cli.overrideAttrs (old: {
+        version = "2.39.3";
+        src = pkgs.fetchzip {
+          url = "https://github.com/spicetify/spicetify-cli/archive/refs/tags/v2.39.3.zip";
+          sha256 = "sha256-gYqvBWZMXH4CvnT5sPcKKptQpHrKpgzL8SSJdxvUcZw=";
+        };
+        postPatch = ''
+          export HOME=$TMPDIR
+          go mod download
+        '';
+      });
+    })
+  ];
+
   home.file.".config/spicetify/Themes/Vesper/color.ini".text = ''
     [Vesper]
     text               = E6D7C3
@@ -63,10 +79,20 @@
     if [ -d "/Applications/Spotify.app" ]; then
       rm -rf ~/.config/spicetify/Themes
       mkdir -p ~/.config/spicetify/Themes/Vesper
+      
+      # Kill Spotify if running
+      killall Spotify 2>/dev/null || true
+      
+      # Wait for Spotify to close
+      sleep 2
+      
+      # Remove previous modifications
+      ${pkgs.spicetify-cli}/bin/spicetify restore
+      
+      # Configure and apply
       ${pkgs.spicetify-cli}/bin/spicetify config spotify_path /Applications/Spotify.app/Contents/Resources
       ${pkgs.spicetify-cli}/bin/spicetify config prefs_path "$HOME/Library/Application Support/Spotify/prefs"
-      ${pkgs.spicetify-cli}/bin/spicetify backup
-      ${pkgs.spicetify-cli}/bin/spicetify apply
+      ${pkgs.spicetify-cli}/bin/spicetify backup apply
     fi
   '';
 }

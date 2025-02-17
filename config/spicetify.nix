@@ -1,6 +1,6 @@
 { config, pkgs, ... }: 
 let
-  spicePkg = pkgs.spicetify-cli;
+  spicePkg = unstable.spicetify-cli;
 in
 {
   home.packages = [ spicePkg ];

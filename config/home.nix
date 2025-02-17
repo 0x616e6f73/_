@@ -15,7 +15,7 @@
     ./tools/gpg.nix
     ./tools/ssh.nix
     ./ghostty.nix
-    # ./brew.nix
+    ./spicetify.nix
   ];
   # Yazi configuration
   home.file.".config/yazi/themes/yazi.toml".source = ./themes/yazi.toml;

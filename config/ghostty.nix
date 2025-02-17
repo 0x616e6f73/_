@@ -31,21 +31,21 @@
     keybind = ctrl+shift+h=previous_tab
 
     # Color scheme (aligned with helix theme)
-    palette = 0=#0a0a0a     # Black (background)
-    palette = 1=#E5524F     # Red (constants)
-    palette = 2=#D4B483     # Green (variables)
-    palette = 3=#FFC799     # Yellow (peach accent)
-    palette = 4=#7C89CD     # Blue (functions)
-    palette = 5=#FF8080     # Magenta (keywords)
-    palette = 6=#99FFE4     # Cyan (strings)
-    palette = 7=#E6D7C3     # White (bone)
-    palette = 8=#4A3C2E     # Bright Black (comments)
-    palette = 9=#FF7300     # Bright Red (storage)
-    palette = 10=#FABD2E    # Bright Green (golden yellow)
-    palette = 11=#FFC799    # Bright Yellow (peach)
-    palette = 12=#7C89CD    # Bright Blue (functions)
-    palette = 13=#FF8080    # Bright Magenta (keywords)
-    palette = 14=#99FFE4    # Bright Cyan (strings)
-    palette = 15=#E6D7C3    # Bright White (bone)
+    palette = 0=#0a0a0a     
+    palette = 1=#E5524F     
+    palette = 2=#D4B483      
+    palette = 3=#FFC799     
+    palette = 4=#7C89CD     
+    palette = 5=#FF8080     
+    palette = 6=#99FFE4     
+    palette = 7=#E6D7C3     
+    palette = 8=#4A3C2E     
+    palette = 9=#FF7300     
+    palette = 10=#FABD2E    
+    palette = 11=#FFC799    
+    palette = 12=#7C89CD    
+    palette = 13=#FF8080    
+    palette = 14=#99FFE4    
+    palette = 15=#E6D7C3    
   '';
 }

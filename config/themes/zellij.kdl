@@ -24,7 +24,7 @@ ui {
 themes {
     custom {
         tab_bar {
-            background "#0a0a0a"
+            background "#0a0a0a00"
             active_tab {
                 bg_color "#FF8080" // Soft red for active tab
                 fg_color "#0a0a0a"

@@ -1,7 +1,13 @@
-{ config, unstable, ... }: 
+{ config, pkgs, unstable, ... }: 
 let
   spicePkg = unstable.spicetify-cli.overrideAttrs (oldAttrs: {
-    version = "2.36.15"; # Lock to a stable version
+    version = "2.39.3";
+    src = pkgs.fetchFromGitHub {
+      owner = "spicetify";
+      repo = "spicetify-cli";
+      rev = "v2.39.3";
+      sha256 = "sha256-l6N21bnb9tpQW0JlPbfK5vFd8SFnPdtH0fO5FoaGf5U=";
+    };
   });
 in
 {

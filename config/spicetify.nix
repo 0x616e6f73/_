@@ -1,4 +1,4 @@
-{ config, pkgs, unstable, ... }: 
+{ config, lib, pkgs, unstable, ... }: 
 let
   spicePkg = unstable.spicetify-cli.overrideAttrs (oldAttrs: {
     version = "2.39.3";
@@ -6,7 +6,7 @@ let
       owner = "spicetify";
       repo = "spicetify-cli";
       rev = "v2.39.3";
-      sha256 = "sha256-l6N21bnb9tpQW0JlPbfK5vFd8SFnPdtH0fO5FoaGf5U=";
+      hash = lib.fakeHash;  # For development only
     };
   });
 in

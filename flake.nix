@@ -15,10 +15,10 @@
       inputs.nixpkgs.follows = "pkgs";
     };
   };
-
+  
   outputs = { self, pkgs, u_pkgs, hm, os, sops-nix }:
     let
-      system = "aarch64-darwin"; # M1 Max
+      system = "aarch64-darwin";
       unstable = u_pkgs.legacyPackages.${system};
     in {
       darwinConfigurations."net-2" = os.lib.darwinSystem {
@@ -26,23 +26,6 @@
         modules = [
           ./config/system.nix
           hm.darwinModules.home-manager
-          ({ pkgs, ... }: {
-            nixpkgs.overlays = [
-              (self: super: {
-                spicetify-cli = super.spicetify-cli.overrideAttrs (old: {
-                  version = "2.39.3";
-                  src = pkgs.fetchzip {
-                    url = "https://github.com/spicetify/spicetify-cli/archive/refs/tags/v2.39.3.zip";
-                    sha256 = "sha256-gYqvBWZMXH4CvnT5sPcKKptQpHrKpgzL8SSJdxvUcZw=";
-                  };
-                  postPatch = ''
-                    export HOME=$TMPDIR
-                    go mod download
-                  '';
-                });
-              })
-            ];
-          })
           {
             home-manager = {
               useGlobalPkgs = true;
@@ -57,7 +40,6 @@
             };
           }
           ({ pkgs, ... }: {
-            # Use nix-darwin's tools
             nix.package = pkgs.nix;
             programs.nix-index.enable = true;
             environment.systemPackages = [
@@ -66,8 +48,7 @@
           })
         ];
       };
-
-      # Development shell definition
+      
       devShells.${system}.default = pkgs.legacyPackages.${system}.mkShell {
         buildInputs = with pkgs.legacyPackages.${system}; [
           age

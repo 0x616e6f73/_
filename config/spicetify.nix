@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
   home.file.".config/spicetify/Themes/Vesper/color.ini".text = ''
     [Vesper]
     text               = E6D7C3
@@ -63,10 +63,10 @@
     if [ -d "/Applications/Spotify.app" ]; then
       rm -rf ~/.config/spicetify/Themes
       mkdir -p ~/.config/spicetify/Themes/Vesper
-      spicetify config spotify_path /Applications/Spotify.app/Contents/Resources
-      spicetify config prefs_path "$HOME/Library/Application Support/Spotify/prefs"
-      spicetify backup
-      spicetify apply
+      ${pkgs.spicetify-cli}/bin/spicetify config spotify_path /Applications/Spotify.app/Contents/Resources
+      ${pkgs.spicetify-cli}/bin/spicetify config prefs_path "$HOME/Library/Application Support/Spotify/prefs"
+      ${pkgs.spicetify-cli}/bin/spicetify backup
+      ${pkgs.spicetify-cli}/bin/spicetify apply
     fi
   '';
 }

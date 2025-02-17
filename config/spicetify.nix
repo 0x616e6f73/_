@@ -1,5 +1,10 @@
-# config/themes/spicetify.nix
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }: 
+let
+  spicePkg = pkgs.spicetify-cli;
+in
+{
+  home.packages = [ spicePkg ];
+
   home.file.".config/spicetify/Themes/Vesper/color.ini".text = ''
     [Vesper]
     text               = E6D7C3
@@ -65,15 +70,10 @@
     experimental_features = 1
   '';
 
-  # Add Spicetify to your packages if not already present
-  home.packages = with pkgs; [
-    spicetify-cli
-  ];
-
   # Add an activation script to apply the theme
   home.activation.setupSpicetify = config.lib.dag.entryAfter ["writeBoundary"] ''
     if [ -d "/Applications/Spotify.app" ]; then
-      ${pkgs.spicetify-cli}/bin/spicetify backup apply
+      ${spicePkg}/bin/spicetify backup apply
     fi
   '';
 }

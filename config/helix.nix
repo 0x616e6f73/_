@@ -110,11 +110,6 @@
           language-servers = [ "taplo" ];
         }
         {
-          name = "vue";
-          auto-format = true;
-          language-servers = [ "volar-server" ];
-        }
-        {
           name = "yaml";
           auto-format = true;
           language-servers = [ "yaml-language-server" ];
@@ -179,10 +174,6 @@
           command = "taplo";
           args = ["lsp" "stdio"];
         };
-        "volar-server" = {
-          command = "volar-server";
-          args = ["--stdio"];
-        };
         "yaml-language-server" = {
           command = "yaml-language-server";
           args = ["--stdio"];
@@ -197,8 +188,6 @@
     delve  # for godlv DAP
     # GraphQL
     nodePackages.graphql-language-service-cli
-    # Expo CLI
-    nodePackages.expo-cli
     # Haskell
     haskell-language-server
     # TypeScript/JavaScript
@@ -223,8 +212,6 @@
     nodePackages.svelte-language-server
     # TOML
     taplo
-    # Vue
-    nodePackages.volar
     # YAML
     nodePackages.yaml-language-server
   ];

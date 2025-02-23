@@ -1,8 +1,5 @@
-{ lib, pkgs, unstable, config, ... }: {
+{ unstable, ... }: {
   home.packages =
-    (with pkgs; [
-    ])
-    ++
     (with unstable; [
       pam-reattach
       coreutils
@@ -21,7 +18,6 @@
       blast-bin
       bore-cli
       bun
-      btop
       cabal-install
       cachix
       dbt
@@ -52,5 +48,13 @@
       watch
       yabai
       yazi
-     ]);
+    ]);
+
+  programs.btop = {
+    enable = true;
+    settings = {
+      color_theme = "custom";
+      vim_keys = true;
+    };
+  };
 }

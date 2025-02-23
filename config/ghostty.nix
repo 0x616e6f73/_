@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ ... }: {
   home.file.".config/ghostty/config".text = ''
     # Background and foreground
     background = #0a0a0a

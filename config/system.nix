@@ -1,7 +1,11 @@
 { pkgs, lib, ... }: {
   nix.package = lib.mkDefault pkgs.nix;
   services.nix-daemon.enable = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    trusted-users = [ "root" "ay" ];
+    nix-path = [ "nixpkgs=${pkgs.path}" ];
+  };
   time.timeZone = "America/New_York";
 
   system.patches = [
@@ -23,12 +27,13 @@
     enableSSHSupport = true;
   };
 
-  environment.shells = [ pkgs.zsh ];
-  programs.zsh.enable = true;
-
-  environment.variables = {
-    PATH = lib.mkForce "/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:$PATH";
+  environment = {
+    shells = [ pkgs.zsh ];
+    variables = {
+      PATH = lib.mkForce "/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:$PATH";
+    };
   };
+  programs.zsh.enable = true;
 
   system.defaults = {
     SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;

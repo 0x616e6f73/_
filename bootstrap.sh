@@ -80,8 +80,8 @@ fi
 if ! command -v darwin-rebuild &>/dev/null; then
 	notify "Installing nix-darwin"
 
-	# flake.nix expects "Aarnavs-MBP" as the hostname
-	$SUDO scutil --set LocalHostName Aarnavs-MBP
+	# flake.nix expects "net-2" as the hostname
+	$SUDO scutil --set LocalHostName net-2
 	dscacheutil -flushcache
 
 	# After nix-darwin is installed and configured it's in the PATH

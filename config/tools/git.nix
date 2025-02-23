@@ -7,6 +7,10 @@
       redo = "commit --amend -S";
       account-switch = "!f() { git config user.name \"$(git config user.$1.name)\" && git config user.email \"$(git config user.$1.email)\" && git config core.sshCommand \"ssh -i ~/.ssh/id_ed25519_$1_github\" && echo \"Switched to $1: $(git config user.name) <$(git config user.email)> using SSH key ~/.ssh/id_ed25519_$1_github\"; }; f";
       account-check = "!git config user.name && git config user.email && git config core.sshCommand";
+      s = "status";
+      ad = "add .";
+      cm = "commit -m";
+      lp = "log --pretty=format:'%C(yellow)%h%Creset -%C(red)%an%Creset, %ar : %s'";
     };
     extraConfig = {
       core.editor = "${pkgs.helix}/bin/helix";
@@ -16,6 +20,7 @@
       submodule.fetchJobs = 4;
       merge.conflictstyle = "diff3";
       push.autoSetupRemote = true;
+      branch.sort = "-committerdate";
       url."git@github.com-ghostty:ghostty-org/".insteadOf = "https://github.com/ghostty-org/";
       url."git@github.com-ay:".insteadOf = "https://github.com/ay-mxn/";
       url."git@github.com-a0:".insteadOf = "https://github.com/0x616e6f73/";

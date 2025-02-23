@@ -1,9 +1,9 @@
 {
   inputs = {
-    pkgs.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
+    pkgs.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
     u_pkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     hm = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "pkgs";
     };
     os = {
@@ -41,7 +41,7 @@
           }
           ({ pkgs, ... }: {
             nix.package = pkgs.nix;
-            programs.nix-index.enable = true;
+            programs.nix-index.enable = true; 
             environment.systemPackages = [
               pkgs.nix
             ];

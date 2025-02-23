@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ ... }: {
   programs.zsh = {
     enable = true;
     autosuggestion = {
@@ -41,6 +41,10 @@
       fi
     '';
     shellAliases = {
+      gs = "git s";
+      gad = "git ad";
+      gcm = "git cm";
+      glp = "git lp";
       nix-rebuild = "darwin-rebuild switch --flake ~/_";
       nix-gc = "nix-collect-garbage --delete-old";
       zellij = "zj";

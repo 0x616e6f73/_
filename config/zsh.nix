@@ -112,7 +112,6 @@
        disabled = false;
      };
 
-     # TODO: fix git stage icon (doesn't appear)
      git_status = {
        format = " [$all_status$ahead_behind]($style) ";
        style = "#E5524F";

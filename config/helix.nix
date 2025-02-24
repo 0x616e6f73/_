@@ -1,4 +1,15 @@
 { config, pkgs, ... }: {
+  /*
+  TODO: add the following when helix 25.01 is released to nix stable:
+  
+  programs.helix.settings.editor = {
+    end-of-line-diagnostics = "hint";
+      
+    inline-diagnostics = {
+      cursor-line = "error";
+    };
+  */
+  
   programs.helix = {
     enable = true;
     settings = {

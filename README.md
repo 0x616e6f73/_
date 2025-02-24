@@ -15,7 +15,7 @@ hello, world.
 - [ ] modify the activation script to ensure the correct permissions are set on the SSH keys.
 
 **helix**
-- [ ] swap normal/insert color modes (red / yellow)
+- [x] swap normal/insert color modes (red / yellow)
 - [ ] create space between mode and git branch name
 
 **zellij**
@@ -29,8 +29,8 @@ hello, world.
 - [ ] look into terminal-apps.dev on brave and see if yazi is actually the best option
 
 **ghostty**
-- [ ] figure out `window-padding-x = 10` for shell prompt only, and not for `hx`
+- [x] figure out `window-padding-x = 10` for shell prompt only, and not for `hx`
 
 **starship**
-- [ ] change newline character to [success_symbol = "[λ](green)" | error_symbol = "[λ](red)"]
+- [x] change newline character to [success_symbol = "[λ](green)" | error_symbol = "[λ](red)"]
 - [ ] consider changing general starship layout to [this](https://x.com/__preem/status/1808743945611940297)

@@ -50,7 +50,7 @@
           <string>#D9956C</string>
         </dict>
       </dict>
-      
+            
       <!-- Constants (non-numeric) -->
       <dict>
         <key>name</key>
@@ -101,7 +101,7 @@
           <key>foreground</key>
           <string>#FF7300</string>
         </dict>
-      </dict>
+      </dict>      
       
       <!-- Function Names -->
       <dict>
@@ -115,7 +115,7 @@
           <string>#7C89CD</string>
         </dict>
       </dict>
-      
+            
       <!-- Constructors -->
       <dict>
         <key>name</key>
@@ -141,7 +141,7 @@
           <string>#FFC799</string>
         </dict>
       </dict>
-      
+            
       <!-- Rust-specific Types -->
       <dict>
         <key>name</key>

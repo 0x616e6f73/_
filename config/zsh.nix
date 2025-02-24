@@ -39,16 +39,31 @@
       if command -v zellij >/dev/null 2>&1; then
         eval "$(zellij setup --generate-auto-start zsh)"
       fi
+
+      # Add prompt positioning function
+      autoload -Uz add-zsh-hook
+
+      fix-prompt-bottom() {
+        local lines
+        lines=$(tput lines)
+        print -n "\e[''${lines};H"
+        [[ -n $ZLE ]] && zle reset-prompt
+      }
+      
+      add-zsh-hook precmd fix-prompt-bottom
     '';
     shellAliases = {
+      ff = "fastfetch";
+      gp = "git p";
+      gf = "git f";
       gs = "git s";
+      gcl = "git cl";
       gad = "git ad";
       gcm = "git cm";
       glp = "git lp";
-      nix-rebuild = "darwin-rebuild switch --flake ~/_";
+      nix-rebuild = "darwin-rebuild switch --flake ~/_ --show-trace";
       nix-gc = "nix-collect-garbage --delete-old";
       zellij = "zj";
-      neofetch = "fastfetch";
     };
     history = {
       size = 10000;
@@ -60,7 +75,80 @@
     };
   };
   programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
+   enable = true;
+   enableZshIntegration = true;
+   settings = {
+     add_newline = true;
+     format = "$directory$git_branch$git_status$git_metrics$fill$rust$line_break$character";
+
+     character = {
+       success_symbol = "[λ](#99FFE4)";
+       error_symbol = "[λ](#E5524F)";
+     };
+   
+     directory = {
+       style = "#FFC799";
+       truncation_length = 1;
+       truncate_to_repo = true;
+       format = "[$path]($style)";
+     };
+
+     fill = {
+       symbol = "─";
+       style = "#4A3C2E";
+     };
+
+     git_branch = {
+       symbol = "";
+       style = "#7C89CD";
+       format = " [($symbol$branch)]($style)";
+     };
+
+     git_metrics = {
+       format = "([+$added]($added_style)([-$deleted]($deleted_style) ))";
+       added_style = "#99FFE4";
+       deleted_style = "#E5524F"; 
+       disabled = false;
+     };
+
+     git_status = {
+       format = " [$all_status]($style) ";
+       style = "#E5524F";
+       ahead = "⇡$count";
+       behind = "⇣$count";
+       diverged = "⇕$count";
+       untracked = "?$count";
+       stashed = "≡$count";
+       modified = "!$count";
+       staged = "+$count";
+       renamed = "→$count";
+       deleted = "×$count";
+     };
+
+     cmd_duration = {
+       format = "[ 󱫑 $duration ]($style)";
+       style = "#7C89CD";
+       show_milliseconds = false;
+     };
+
+     rust = {
+       format = " [$symbol($version )]($style)";
+       symbol = "🦀";
+       style = "#FF8080";
+       disabled = false;
+     };
+    
+     docker_context = {
+       symbol = " ";  
+       style = "#7C89CD"; 
+       format = "[($symbol$context )]($style)";
+     };
+
+     kubernetes = {
+       symbol = "󱃾 ";  
+       style = "#FF8080";
+       format = "[($symbol$context )]($style)";
+     };
+   };
   };
 }

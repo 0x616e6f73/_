@@ -2,7 +2,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "ashys";
+      theme = "arabia";
       editor = {
         line-number = "absolute";
         mouse = false;
@@ -181,7 +181,7 @@
       };
     };
   };
-  home.file.".config/helix/themes/ashys.toml".source = ./themes/helix.toml;
+  home.file.".config/helix/themes/arabia.toml".source = ./themes/helix.toml;
   home.packages = with pkgs; [
     # Go
     gopls

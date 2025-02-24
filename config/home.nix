@@ -6,6 +6,10 @@
   fonts.fontconfig.enable = true;
   programs.home-manager.enable = true;
 
+  home.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "GeistMono" ]; })
+  ];
+  
   imports = [
     ./packages.nix
     ./zsh.nix

@@ -79,7 +79,7 @@
    enableZshIntegration = true;
    settings = {
      add_newline = true;
-     format = "$directory$git_branch$git_status$git_metrics$fill$rust$line_break$character";
+     format = "$directory$git_branch$git_status$git_metrics$fill$cmd_duration$rust$line_break$character";
 
      character = {
        success_symbol = "[λ](#99FFE4)";
@@ -90,7 +90,7 @@
        style = "#FFC799";
        truncation_length = 1;
        truncate_to_repo = true;
-       format = "[$path]($style)";
+       format = "[$path]($style) ";
      };
 
      fill = {
@@ -99,9 +99,8 @@
      };
 
      git_branch = {
-       symbol = "";
        style = "#7C89CD";
-       format = " [($symbol$branch)]($style)";
+       format = "[($symbol$branch)]($style)";
      };
 
      git_metrics = {
@@ -126,13 +125,14 @@
      };
 
      cmd_duration = {
-       format = "[ 󱫑 $duration ]($style)";
+       min_time = 0;
+       format = " [󱫑 $duration]($style) ";
        style = "#7C89CD";
        show_milliseconds = false;
      };
 
      rust = {
-       format = " [$symbol($version )]($style)";
+       format = "[$symbol($version )]($style)";
        symbol = "🦀";
        style = "#FF8080";
        disabled = false;

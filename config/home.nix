@@ -7,7 +7,7 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "GeistMono" ]; })
+    (nerdfonts.override { fonts = [ "FiraCode" "NerdFontsSymbolsOnly" ]; })
   ];
   
   imports = [

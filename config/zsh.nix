@@ -54,9 +54,10 @@
     '';
     shellAliases = {
       ff = "fastfetch";
-      gp = "git p";
       gf = "git f";
       gs = "git s";
+      gp = "git p";
+      gpl = "git pl";
       gcl = "git cl";
       gad = "git ad";
       gcm = "git cm";

@@ -83,12 +83,12 @@
      format = "$directory$git_branch$git_status$git_metrics$fill$cmd_duration$rust$line_break$character";
 
      character = {
-       success_symbol = "[λ](#99FFE4)";
+       success_symbol = "[λ](#7C89CD)";
        error_symbol = "[λ](#E5524F)";
      };
    
      directory = {
-       style = "#FFC799";
+       style = "#4A3C2E";
        truncation_length = 1;
        truncate_to_repo = true;
        format = "[$path]($style) ";
@@ -100,14 +100,14 @@
      };
 
      git_branch = {
-       style = "#7C89CD";
+       style = "#FFC799";
        format = "[($symbol$branch)]($style)";
      };
 
      git_metrics = {
        format = "([+$added]($added_style)([-$deleted]($deleted_style) ))";
-       added_style = "#99FFE4";
-       deleted_style = "#E5524F"; 
+       added_style = "#4EC9B0";
+       deleted_style = "#FF8080"; 
        disabled = false;
      };
 
@@ -128,27 +128,25 @@
      cmd_duration = {
        min_time = 0;
        format = " [󱫑 $duration]($style) ";
-       style = "#7C89CD";
+       style = "#D9956C";
        show_milliseconds = false;
      };
 
      rust = {
        format = "[$symbol($version )]($style)";
        symbol = "🦀";
-       style = "#FF8080";
+       style = "#E5524F";
        disabled = false;
      };
     
      docker_context = {
-       symbol = " ";  
-       style = "#7C89CD"; 
-       format = "[($symbol$context )]($style)";
+       style = "#4EC9B0"; 
+       format = " [($symbol$context)]($style)";
      };
 
      kubernetes = {
-       symbol = "󱃾 ";  
-       style = "#FF8080";
-       format = "[($symbol$context )]($style)";
+       style = "#7C89CD";
+       format = " [($symbol$context )]($style)";
      };
    };
   };

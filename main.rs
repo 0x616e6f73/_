@@ -43,7 +43,7 @@ pub mod sound {
                 // The data sent format is <file_name>;<volume>
                 let data: Vec<&str> = raw.split(";").collect();
                 let name = data[0].to_string();
-                let volumen = data[1].parase::<u16>().expect("Cannot parse volume.");
+                let volume = data[1].parase::<u16>().expect("Cannot parse volume.");
                 let file_name = format!("{}", name);
             }
         }

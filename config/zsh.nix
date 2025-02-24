@@ -80,6 +80,7 @@
    enableZshIntegration = true;
    settings = {
      add_newline = true;
+     # TODO: add all the other formatting for languages / technologies (as seen here https://github.com/smithumble/starship-cockpit/blob/main/starship.toml)
      format = "$directory$git_branch$git_status$git_metrics$fill$cmd_duration$rust$line_break$character";
 
      character = {

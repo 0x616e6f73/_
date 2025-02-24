@@ -7,6 +7,7 @@
         line-number = "absolute";
         mouse = false;
         auto-format = true;
+        end-of-line-diagnostics = "hint";
         cursor-shape = {
           insert = "bar";
           normal = "block";
@@ -25,9 +26,13 @@
         soft-wrap = {
           enable = true;
         };
+        inline-diagnostics = {
+          cursor-line = "error";
+        };
         lsp = {
           display-inlay-hints = true;
           display-messages = true;
+          snippets = false;
         };
         color-modes = true;
       };

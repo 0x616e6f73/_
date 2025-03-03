@@ -115,8 +115,8 @@
      git_status = {
        format = " [$all_status$ahead_behind]($style) ";
        style = "#E5524F";
-       ahead = "⇡$count";
-       behind = "⇣$count";
+       ahead = "⇡ $count";
+       behind = "⇣ $count";
        diverged = "⇕$count";
        untracked = "?$count";
        stashed = "≡$count";

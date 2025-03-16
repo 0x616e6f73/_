@@ -21,6 +21,7 @@
       cabal-install
       cachix
       dbt
+      deno
       direnv
       docker
       fastfetch

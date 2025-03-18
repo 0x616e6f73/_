@@ -37,6 +37,7 @@
       lsd
       monitorcontrol
       nodejs
+      nushell
       ollama
       openssl
       optipng
@@ -44,6 +45,7 @@
       redis
       rustup
       skhd
+      tor
       unixtools.script
       uv
       watch

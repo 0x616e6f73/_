@@ -8,6 +8,7 @@
       # Things = 904280696;
     };
     casks = [
+      "claude"
       "craft"
       "cursor"
       "dbngin"
